@@ -6,27 +6,33 @@
 
     <!-- ===== SEO ОПТИМИЗАЦИЯ ===== -->
     <title>Nexus — AI-платформа для аналитики и автоматизации | Демо-доступ</title>
-    <meta name="description" content="Nexus — AI-платформа нового поколения для аналитики и автоматизации бизнеса. Точность 98%, скорость 10мс, работа 24/7. Получите бесплатный демо-доступ за 15 минут.">
+    <meta name="description" content="Nexus — AI-платформа для аналитики и автоматизации. Демо-доступ, 500+ клиентов, 99.9% uptime. Подключение за 3 шага.">
     <meta name="keywords" content="AI-платформа, аналитика данных, автоматизация бизнеса, искусственный интеллект, нейросети, Nexus">
     <meta name="author" content="Nexus Technologies">
     <meta name="robots" content="index, follow">
 
-    <!-- Open Graph для соцсетей -->
+    <!-- Open Graph теги для соцсетей -->
     <meta property="og:title" content="Nexus — AI-платформа для аналитики и автоматизации">
-    <meta property="og:description" content="Платформа, которая объединяет искусственный интеллект, аналитику и автоматизацию. Получите демо-доступ бесплатно.">
+    <meta property="og:description" content="AI-платформа нового поколения. 500+ клиентов, 99.9% uptime. Демо-доступ бесплатно за 15 минут.">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&h=630&fit=crop&q=80">
+    <meta property="og:url" content="https://nexus.tech">
 
-    <!-- ===== FAVICON (SVG data URI — всё в одном файле) ===== -->
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nexus — AI-платформа для аналитики">
+    <meta name="twitter:description" content="Демо-доступ, 500+ клиентов, 99.9% uptime.">
+
+    <!-- Favicon (встроенный SVG) -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23a855f7'/><stop offset='100%25' stop-color='%2322d3ee'/></linearGradient></defs><circle cx='50' cy='50' r='45' fill='url(%23g)'/><text x='50' y='68' font-family='Arial' font-size='50' font-weight='bold' fill='white' text-anchor='middle'>N</text></svg>">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <style>
-        /* ===== ИСПРАВЛЕНИЕ #1: ПРЫЖКИ ЯКОРЕЙ ===== */
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 90px; /* Отступ при прокрутке к якорям */
+            scroll-padding-top: 90px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -43,6 +49,7 @@
             --glass-border: rgba(255, 255, 255, 0.1);
             --error-red: #ef4444;
             --star-gold: #fbbf24;
+            --success-green: #4ade80;
         }
 
         body {
@@ -102,7 +109,7 @@
             animation: gradientShift 8s ease-in-out infinite;
         }
 
-        /* Земля со спутником */
+        /* ===== ЗЕМЛЯ СО СПУТНИКОМ ===== */
         .earth-system {
             position: absolute;
             top: -40px;
@@ -194,7 +201,7 @@
             50% { opacity: 1; transform: scale(1.4); }
         }
 
-        /* ===== ШАПКА С БУРГЕР-МЕНЮ ===== */
+        /* ===== HEADER ===== */
         header {
             position: fixed;
             top: 0; left: 0; right: 0;
@@ -243,7 +250,6 @@
 
         nav a:hover::after { width: 100%; }
 
-        /* Бургер-кнопка */
         .burger-btn {
             display: none;
             flex-direction: column;
@@ -263,17 +269,11 @@
             transition: all 0.3s;
         }
 
-        .burger-btn.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
-        .burger-btn.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .burger-btn.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
+        .burger-btn.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .burger-btn.active span:nth-child(2) { opacity: 0; }
+        .burger-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
 
-        /* Hero */
+        /* ===== HERO ===== */
         #home {
             position: relative;
             z-index: 5;
@@ -333,7 +333,6 @@
             max-width: 500px;
         }
 
-        /* ===== ИСПРАВЛЕНИЕ #3: ИЕРАРХИЯ КНОПОК ===== */
         .cta-group {
             display: flex;
             gap: 1rem;
@@ -364,7 +363,6 @@
             box-shadow: 0 0 50px rgba(168, 85, 247, 0.7);
         }
 
-        /* Второстепенная кнопка — просто текстовая ссылка */
         .btn-text-link {
             color: var(--text-dim);
             text-decoration: none;
@@ -376,9 +374,7 @@
             gap: 0.4rem;
         }
 
-        .btn-text-link:hover {
-            color: var(--cyan);
-        }
+        .btn-text-link:hover { color: var(--cyan); }
 
         .btn-text-link svg {
             width: 14px;
@@ -386,9 +382,7 @@
             transition: transform 0.3s;
         }
 
-        .btn-text-link:hover svg {
-            transform: translateX(4px);
-        }
+        .btn-text-link:hover svg { transform: translateX(4px); }
 
         .hero-visual {
             position: relative;
@@ -466,7 +460,7 @@
             to { opacity: 1; }
         }
 
-        /* ===== ИСПРАВЛЕНИЕ #4: БЛОК С ЦИФРАМИ (СОЦИАЛЬНОЕ ДОКАЗАТЕЛЬСТВО) ===== */
+        /* ===== STATS BAR ===== */
         .stats-bar {
             position: relative;
             z-index: 5;
@@ -482,12 +476,6 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 3rem;
             text-align: center;
-        }
-
-        .stats-bar-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
         .stats-bar-number {
@@ -507,7 +495,7 @@
             font-weight: 500;
         }
 
-        /* Features */
+        /* ===== FEATURES ===== */
         #features {
             position: relative;
             z-index: 5;
@@ -596,7 +584,38 @@
             line-height: 1.6;
         }
 
-        /* How it works */
+        /* ===== INLINE CTA ===== */
+        .inline-cta {
+            margin-top: 4rem;
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            background-color: rgba(10, 10, 15, 0.5);
+        }
+
+        .inline-cta h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .inline-cta p {
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-cta-subtext {
+            display: block;
+            margin-top: 0.8rem;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            font-weight: 400;
+        }
+
+        /* ===== HOW IT WORKS ===== */
         .how-it-works {
             position: relative;
             z-index: 5;
@@ -657,13 +676,39 @@
             font-size: 0.95rem;
         }
 
-        /* ===== ИСПРАВЛЕНИЕ #5: БЛОК ТАРИФОВ ===== */
+        /* ===== PRICING ===== */
         #pricing {
             position: relative;
             z-index: 5;
             padding: 8rem 5%;
             max-width: 1400px;
             margin: 0 auto;
+        }
+
+        .pricing-header {
+            text-align: center;
+            max-width: 100%;
+            margin: 0 auto 2rem;
+        }
+
+        .pricing-badge-top {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.2rem;
+            background: linear-gradient(90deg, rgba(168, 85, 247, 0.2), rgba(34, 211, 238, 0.2));
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--cyan);
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .pricing-badge-top svg {
+            width: 16px;
+            height: 16px;
         }
 
         .pricing-grid {
@@ -692,7 +737,6 @@
             box-shadow: 0 20px 40px rgba(168, 85, 247, 0.15);
         }
 
-        /* Рекомендуемый тариф */
         .pricing-card.featured {
             border-color: var(--purple);
             background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(34, 211, 238, 0.05));
@@ -810,7 +854,60 @@
             box-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
         }
 
-        /* Отзывы */
+        /* ===== LOGOS BAR (НОВОЕ) ===== */
+        .logos-bar {
+            position: relative;
+            z-index: 5;
+            padding: 4rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .logos-bar p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .logos-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .logos-grid:hover {
+            opacity: 0.9;
+        }
+
+        .logo-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--text-dim);
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .logo-item:hover {
+            color: var(--text);
+        }
+
+        .logo-item svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        /* ===== TESTIMONIALS ===== */
         .testimonials {
             position: relative;
             z-index: 5;
@@ -853,9 +950,7 @@
             box-shadow: 0 20px 40px rgba(168, 85, 247, 0.15);
         }
 
-        .testimonial-card:hover::before {
-            opacity: 1;
-        }
+        .testimonial-card:hover::before { opacity: 1; }
 
         .testimonial-quote {
             position: absolute;
@@ -929,7 +1024,7 @@
             color: var(--text-dim);
         }
 
-        /* ===== ИСПРАВЛЕНИЕ #6: FAQ СЕКЦИЯ ===== */
+        /* ===== FAQ ===== */
         #faq {
             position: relative;
             z-index: 5;
@@ -954,9 +1049,7 @@
             background-color: rgba(10, 10, 15, 0.5);
         }
 
-        .faq-item:hover {
-            border-color: rgba(168, 85, 247, 0.3);
-        }
+        .faq-item:hover { border-color: rgba(168, 85, 247, 0.3); }
 
         .faq-question {
             width: 100%;
@@ -976,9 +1069,7 @@
             transition: color 0.3s;
         }
 
-        .faq-question:hover {
-            color: var(--cyan);
-        }
+        .faq-question:hover { color: var(--cyan); }
 
         .faq-icon {
             width: 24px;
@@ -1019,11 +1110,40 @@
             padding: 0 2rem 1.5rem;
         }
 
-        /* Форма заявки */
+        /* ===== INLINE FAQ (перед формой) ===== */
+        .inline-faq {
+            position: relative;
+            z-index: 5;
+            padding: 4rem 5% 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .inline-faq-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .inline-faq-header h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .inline-faq-header p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        .inline-faq .faq-item {
+            background: rgba(10, 10, 15, 0.7);
+        }
+
+        /* ===== CONTACT FORM ===== */
         #contact {
             position: relative;
             z-index: 5;
-            padding: 8rem 5%;
+            padding: 4rem 5% 8rem;
             max-width: 800px;
             margin: 0 auto;
         }
@@ -1084,6 +1204,7 @@
             box-shadow: 0 0 20px rgba(34, 211, 238, 0.1);
         }
 
+        /* Валидация: красная подсветка */
         .form-input.error {
             border-color: var(--error-red);
             background: rgba(239, 68, 68, 0.06);
@@ -1154,21 +1275,44 @@
             box-shadow: 0 0 40px rgba(168, 85, 247, 0.6);
         }
 
+        /* Зеленое сообщение об успехе */
         .success-message {
             display: none;
             margin-top: 1.5rem;
-            padding: 1.2rem;
+            padding: 1.5rem;
             background: rgba(34, 197, 94, 0.1);
             border: 1px solid rgba(34, 197, 94, 0.3);
             border-radius: 12px;
-            color: #4ade80;
+            color: var(--success-green);
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 1rem;
             animation: fadeInError 0.4s ease-out;
         }
 
         .success-message.show {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+        }
+
+        .success-message svg {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        /* Политика конфиденциальности */
+        .privacy-note {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            line-height: 1.5;
+        }
+
+        .privacy-note a {
+            color: var(--cyan);
+            text-decoration: underline;
         }
 
         .quick-contact {
@@ -1208,9 +1352,7 @@
             height: 24px;
         }
 
-        .social-icon:hover {
-            transform: translateY(-4px);
-        }
+        .social-icon:hover { transform: translateY(-4px); }
 
         .social-telegram:hover {
             color: #29b6f6;
@@ -1233,7 +1375,7 @@
             box-shadow: 0 0 25px rgba(34, 211, 238, 0.35);
         }
 
-        /* ===== ИСПРАВЛЕНИЕ #7: РАСШИРЕННЫЙ ФУТЕР ===== */
+        /* ===== FOOTER ===== */
         .footer-extended {
             position: relative;
             z-index: 5;
@@ -1243,10 +1385,7 @@
             background: rgba(5, 5, 10, 0.7);
         }
 
-        .footer-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+        .footer-container { max-width: 1400px; margin: 0 auto; }
 
         .footer-grid {
             display: grid;
@@ -1265,7 +1404,6 @@
 
         .footer-col h4 {
             color: var(--text);
-            font-size: 1rem;
             font-weight: 700;
             margin-bottom: 1.2rem;
             letter-spacing: 1px;
@@ -1287,9 +1425,7 @@
             transition: color 0.3s;
         }
 
-        .footer-col a:hover {
-            color: var(--cyan);
-        }
+        .footer-col a:hover { color: var(--cyan); }
 
         .footer-social {
             display: flex;
@@ -1344,11 +1480,9 @@
             transition: color 0.3s;
         }
 
-        .footer-legal a:hover {
-            color: var(--cyan);
-        }
+        .footer-legal a:hover { color: var(--cyan); }
 
-        /* ===== ИСПРАВЛЕНИЕ #8: ВИДЖЕТ ЧАТА (кнопка) ===== */
+        /* ===== CHAT WIDGET ===== */
         .chat-widget {
             position: fixed;
             bottom: 25px;
@@ -1384,7 +1518,7 @@
             50% { box-shadow: 0 8px 35px rgba(34, 211, 238, 0.6); }
         }
 
-        /* ===== ИСПРАВЛЕНИЕ #9: EXIT-INTENT ПОПАП ===== */
+        /* ===== EXIT POPUP ===== */
         .exit-popup-overlay {
             position: fixed;
             inset: 0;
@@ -1398,9 +1532,7 @@
             animation: fadeIn 0.3s ease-out;
         }
 
-        .exit-popup-overlay.show {
-            display: flex;
-        }
+        .exit-popup-overlay.show { display: flex; }
 
         .exit-popup {
             background: var(--bg-darker);
@@ -1481,9 +1613,7 @@
             outline: none;
         }
 
-        .exit-popup-input:focus {
-            border-color: var(--cyan);
-        }
+        .exit-popup-input:focus { border-color: var(--cyan); }
 
         .exit-popup-btn {
             width: 100%;
@@ -1514,13 +1644,10 @@
             font-family: 'Inter', sans-serif;
         }
 
-        .exit-popup-skip:hover {
-            color: var(--text);
-        }
+        .exit-popup-skip:hover { color: var(--text); }
 
-        /* Mobile */
+        /* ===== MOBILE ===== */
         @media (max-width: 900px) {
-            /* Бургер-меню активируется */
             .burger-btn { display: flex; }
 
             nav ul {
@@ -1538,11 +1665,7 @@
             }
 
             nav ul.open { right: 0; }
-
-            nav a {
-                font-size: 1.1rem;
-                padding: 0.5rem 0;
-            }
+            nav a { font-size: 1.1rem; padding: 0.5rem 0; }
 
             #home {
                 grid-template-columns: 1fr;
@@ -1562,26 +1685,17 @@
                 grid-template-columns: 1fr 1fr;
                 gap: 2rem;
             }
-            .footer-brand {
-                grid-column: 1 / -1;
-            }
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
+            .footer-brand { grid-column: 1 / -1; }
+            .footer-bottom { flex-direction: column; text-align: center; }
             .exit-popup { padding: 2rem 1.5rem; }
-            .chat-widget {
-                width: 55px;
-                height: 55px;
-                bottom: 15px;
-                right: 15px;
-            }
+            .chat-widget { width: 55px; height: 55px; bottom: 15px; right: 15px; }
+            .logos-grid { gap: 1.5rem; }
+            .logo-item { font-size: 0.9rem; }
+            .logo-item svg { width: 24px; height: 24px; }
         }
 
         @media (max-width: 500px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
+            .footer-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -1607,7 +1721,7 @@
 
     <main>
 
-        <!-- Главный экран -->
+        <!-- HERO -->
         <section id="home" aria-label="Главный экран">
             <div class="hero-content">
                 <div class="hero-badge fade-in fade-in-delay-1">Новая версия 2.0 уже доступна</div>
@@ -1665,7 +1779,7 @@
             </div>
         </section>
 
-        <!-- ===== БЛОК С ЦИФРАМИ ===== -->
+        <!-- STATS BAR -->
         <section class="stats-bar" aria-label="Статистика компании">
             <div class="stats-bar-grid">
                 <div class="stats-bar-item">
@@ -1687,7 +1801,7 @@
             </div>
         </section>
 
-        <!-- Возможности -->
+        <!-- FEATURES -->
         <section id="features" aria-labelledby="features-heading">
             <div class="section-header">
                 <div class="section-tag">Возможности</div>
@@ -1731,9 +1845,17 @@
                     </div>
                 </article>
             </div>
+
+            <!-- INLINE CTA после возможностей -->
+            <div class="inline-cta">
+                <h3>Готовы увидеть Nexus в действии?</h3>
+                <p>Запустите пробный период без обязательств — убедитесь сами.</p>
+                <a href="#contact" class="btn-primary">Запустить пробный период</a>
+                <span class="btn-cta-subtext">Бесплатно · Без обязательств · Ответим за 15 минут</span>
+            </div>
         </section>
 
-        <!-- Как это работает -->
+        <!-- HOW IT WORKS -->
         <section class="how-it-works" aria-labelledby="how-heading">
             <div class="how-container">
                 <div class="section-header">
@@ -1772,12 +1894,28 @@
                         <p>Действуйте на основе точных прогнозов и автоматических рекомендаций</p>
                     </article>
                 </div>
+
+                <!-- INLINE CTA после как это работает -->
+                <div class="inline-cta">
+                    <h3>Всего 3 шага до мощной аналитики</h3>
+                    <p>Получите персональный демо-доступ и оцените возможности Nexus.</p>
+                    <a href="#contact" class="btn-primary">Получить демо-доступ</a>
+                    <span class="btn-cta-subtext">Бесплатно · Без обязательств · Ответим за 15 минут</span>
+                </div>
             </div>
         </section>
 
-        <!-- ===== БЛОК ТАРИФОВ ===== -->
+        <!-- PRICING -->
         <section id="pricing" aria-labelledby="pricing-heading">
-            <div class="section-header" style="text-align: center; max-width: 100%; margin: 0 auto 2rem;">
+            <div class="pricing-header">
+                <!-- Бейдж доверия -->
+                <div class="pricing-badge-top">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        <polyline points="9 12 11 14 15 10"></polyline>
+                    </svg>
+                    14 дней бесплатно · Отмена в один клик
+                </div>
                 <div class="section-tag">Тарифы</div>
                 <h2 id="pricing-heading">Выберите план, который подходит вам</h2>
             </div>
@@ -1798,7 +1936,7 @@
                     <a href="#contact" class="btn-pricing">Начать бесплатно</a>
                 </article>
 
-                <!-- PRO (рекомендуемый) -->
+                <!-- PRO -->
                 <article class="pricing-card featured">
                     <div class="pricing-badge">ПОПУЛЯРНЫЙ</div>
                     <h3>Pro</h3>
@@ -1833,7 +1971,48 @@
             </div>
         </section>
 
-        <!-- Отзывы -->
+        <!-- LOGOS BAR (НОВОЕ) -->
+        <section class="logos-bar" aria-label="Нам доверяют компании">
+            <p>Нам доверяют лидеры рынка</p>
+            <div class="logos-grid">
+                <div class="logo-item">
+                    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="16" cy="16" r="12"/>
+                        <path d="M8 16 L16 8 L24 16 L16 24 Z"/>
+                    </svg>
+                    TECHFLOW
+                </div>
+                <div class="logo-item">
+                    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="4" y="4" width="24" height="24" rx="4"/>
+                        <circle cx="16" cy="16" r="6"/>
+                    </svg>
+                    GROWTHLAB
+                </div>
+                <div class="logo-item">
+                    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="16,2 22,12 30,14 24,22 26,30 16,26 6,30 8,22 2,14 10,12"/>
+                    </svg>
+                    DATABRIDGE
+                </div>
+                <div class="logo-item">
+                    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 16 Q16 4 28 16 Q16 28 4 16"/>
+                        <circle cx="16" cy="16" r="4"/>
+                    </svg>
+                    QUANTUM
+                </div>
+                <div class="logo-item">
+                    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 8 L26 8 L22 24 L10 24 Z"/>
+                        <line x1="16" y1="4" x2="16" y2="28"/>
+                    </svg>
+                    NEURALNET
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
         <section class="testimonials" aria-labelledby="testimonials-heading">
             <div class="section-header">
                 <div class="section-tag">Отзывы</div>
@@ -1899,11 +2078,11 @@
             </div>
         </section>
 
-        <!-- ===== FAQ СЕКЦИЯ ===== -->
-        <section id="faq" aria-labelledby="faq-heading">
-            <div class="section-header" style="text-align: center; max-width: 100%; margin: 0 auto 2rem;">
-                <div class="section-tag">FAQ</div>
-                <h2 id="faq-heading">Частые вопросы</h2>
+        <!-- INLINE FAQ перед формой -->
+        <section class="inline-faq" aria-label="Частые вопросы перед заявкой">
+            <div class="inline-faq-header">
+                <h3>Остались вопросы перед заявкой?</h3>
+                <p>Вот ответы на самые частые из них</p>
             </div>
             <div class="faq-list">
                 <div class="faq-item">
@@ -1918,21 +2097,98 @@
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Как обеспечивается безопасность данных?</span>
-                        <span class="faq-icon"></span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Мы используем AES-256 шифрование, соответствуем стандартам GDPR и ISO 27001. Данные хранятся в сертифицированных дата-центрах с резервным копированием каждые 15 минут.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
                         <span>Могу ли я отменить подписку в любой момент?</span>
                         <span class="faq-icon"></span>
                     </button>
                     <div class="faq-answer">
                         <p>Да, вы можете отменить подписку одним кликом в личном кабинете. Никаких скрытых комиссий или длительных обязательств. Деньги за неиспользованный период возвращаются.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT FORM -->
+        <section id="contact" aria-labelledby="contact-heading">
+            <div class="contact-card fade-in">
+                <div class="section-tag">Быстрый старт</div>
+                <h2 id="contact-heading" class="gradient-animated">Получить консультацию</h2>
+                <p>Заполните форму, и наш специалист свяжется с вами в течение 15 минут.</p>
+                
+                <form id="applicationForm" class="contact-form" novalidate aria-label="Форма для получения консультации">
+                    <div class="form-group">
+                        <input type="text" id="userName" class="form-input" placeholder="Ваше имя" aria-label="Ваше имя" autocomplete="name">
+                        <div class="error-message" id="nameError"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="userContact" class="form-input" placeholder="Ваш Email или Telegram (@username)" aria-label="Ваш Email или Telegram" autocomplete="email">
+                        <div class="error-message" id="contactError"></div>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="userComment" class="form-input" placeholder="Комментарий (необязательно)" rows="3" aria-label="Комментарий" style="resize: vertical; min-height: 80px;"></textarea>
+                    </div>
+
+                    <div class="response-note">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <span>Мы ответим в течение 15 минут в рабочее время</span>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Получить консультацию</button>
+                    <span class="btn-cta-subtext">Бесплатно · Без обязательств · Ответим за 15 минут</span>
+
+                    <div class="success-message" id="successMessage" role="status">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        <span>Спасибо! Мы свяжемся с вами в течение 15 минут.</span>
+                    </div>
+
+                    <p class="privacy-note">
+                        Нажимая кнопку, вы соглашаетесь с <a href="#">политикой конфиденциальности</a> и даёте согласие на обработку персональных данных.
+                    </p>
+                </form>
+
+                <div class="quick-contact">
+                    <p>Или напишите нам напрямую:</p>
+                    <div class="social-icons">
+                        <a href="https://t.me/nexus_support" target="_blank" rel="noopener noreferrer" class="social-icon social-telegram" title="Telegram" aria-label="Написать нам в Telegram">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/79990000000" target="_blank" rel="noopener noreferrer" class="social-icon social-whatsapp" title="WhatsApp" aria-label="Написать нам в WhatsApp">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                        </a>
+                        <a href="mailto:hello@nexus.tech" class="social-icon social-email" title="Email" aria-label="Написать нам на Email">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FULL FAQ -->
+        <section id="faq" aria-labelledby="faq-heading">
+            <div class="section-header" style="text-align: center; max-width: 100%; margin: 0 auto 2rem;">
+                <div class="section-tag">FAQ</div>
+                <h2 id="faq-heading">Все частые вопросы</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Как обеспечивается безопасность данных?</span>
+                        <span class="faq-icon"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Мы используем AES-256 шифрование, соответствуем стандартам GDPR и ISO 27001. Данные хранятся в сертифицированных дата-центрах с резервным копированием каждые 15 минут.</p>
                     </div>
                 </div>
 
@@ -1968,65 +2224,9 @@
             </div>
         </section>
 
-        <!-- Форма заявки -->
-        <section id="contact" aria-labelledby="contact-heading">
-            <div class="contact-card fade-in">
-                <div class="section-tag">Быстрый старт</div>
-                <h2 id="contact-heading" class="gradient-animated">Получить демо-доступ</h2>
-                <p>Заполните форму, и мы откроем для вас бесплатный пробный период.</p>
-                
-                <form id="applicationForm" class="contact-form" novalidate aria-label="Форма для получения демо-доступа">
-                    <div class="form-group">
-                        <input type="text" id="userName" class="form-input" placeholder="Ваше имя" aria-label="Ваше имя" autocomplete="name">
-                        <div class="error-message" id="nameError"></div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="userContact" class="form-input" placeholder="Ваш Email или Telegram (@username)" aria-label="Ваш Email или Telegram" autocomplete="email">
-                        <div class="error-message" id="contactError"></div>
-                    </div>
-
-                    <div class="response-note">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                        <span>Мы ответим в течение 15 минут в рабочее время</span>
-                    </div>
-
-                    <button type="submit" class="btn-submit">Получить демо-доступ</button>
-
-                    <div class="success-message" id="successMessage" role="status">
-                        ✨ Спасибо! Заявка отправлена. Мы свяжемся с вами в течение 15 минут.
-                    </div>
-                </form>
-
-                <div class="quick-contact">
-                    <p>Или напишите нам напрямую:</p>
-                    <div class="social-icons">
-                        <a href="https://t.me/nexus_support" target="_blank" rel="noopener noreferrer" class="social-icon social-telegram" title="Telegram" aria-label="Написать нам в Telegram">
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-                            </svg>
-                        </a>
-                        <a href="https://wa.me/79990000000" target="_blank" rel="noopener noreferrer" class="social-icon social-whatsapp" title="WhatsApp" aria-label="Написать нам в WhatsApp">
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                            </svg>
-                        </a>
-                        <a href="mailto:hello@nexus.tech" class="social-icon social-email" title="Email" aria-label="Написать нам на Email">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </main>
 
-    <!-- ===== РАСШИРЕННЫЙ ФУТЕР ===== -->
+    <!-- FOOTER -->
     <footer class="footer-extended">
         <div class="footer-container">
             <div class="footer-grid">
@@ -2088,7 +2288,7 @@
         </div>
     </footer>
 
-    <!-- ===== ВИДЖЕТ ЧАТА (кнопка) ===== -->
+    <!-- CHAT WIDGET -->
     <button class="chat-widget" id="chatWidget" aria-label="Открыть чат поддержки">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
@@ -2097,7 +2297,7 @@
         </svg>
     </button>
 
-    <!-- ===== EXIT-INTENT ПОПАП ===== -->
+    <!-- EXIT POPUP -->
     <div class="exit-popup-overlay" id="exitPopup">
         <div class="exit-popup">
             <button class="exit-popup-close" id="exitPopupClose" aria-label="Закрыть">✕</button>
@@ -2126,7 +2326,6 @@
             navMenu.classList.remove('open');
         }
 
-        // Закрытие меню при клике вне его
         document.addEventListener('click', (e) => {
             if (!navMenu.contains(e.target) && !burgerBtn.contains(e.target) && navMenu.classList.contains('open')) {
                 closeMenu();
@@ -2138,21 +2337,21 @@
             btn.addEventListener('click', () => {
                 const item = btn.parentElement;
                 const isActive = item.classList.contains('active');
+                const parentList = item.closest('.faq-list');
                 
-                // Закрываем все
-                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                parentList.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
                 
-                // Открываем текущий, если не был открыт
                 if (!isActive) {
                     item.classList.add('active');
                 }
             });
         });
 
-        // ===== ФОРМА ЗАЯВКИ =====
+        // ===== ФОРМА ЗАЯВКИ (БЕЗ ALERT) =====
         const form = document.getElementById('applicationForm');
         const nameInput = document.getElementById('userName');
         const contactInput = document.getElementById('userContact');
+        const commentInput = document.getElementById('userComment');
         const successMessage = document.getElementById('successMessage');
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -2170,6 +2369,7 @@
             input.parentElement.classList.remove('show-error');
         }
 
+        // Убираем ошибку при вводе
         nameInput.addEventListener('input', () => hideError(nameInput, 'nameError'));
         contactInput.addEventListener('input', () => hideError(contactInput, 'contactError'));
 
@@ -2179,6 +2379,7 @@
 
             successMessage.classList.remove('show');
 
+            // Валидация имени
             const name = nameInput.value.trim();
             if (name === '') {
                 showError(nameInput, 'nameError', 'Пожалуйста, введите ваше имя');
@@ -2190,6 +2391,7 @@
                 hideError(nameInput, 'nameError');
             }
 
+            // Валидация контакта
             const contact = contactInput.value.trim();
 
             if (contact === '') {
@@ -2214,21 +2416,27 @@
                 isValid = false;
             }
 
+            // Успешная отправка
             if (isValid) {
                 successMessage.classList.add('show');
                 form.reset();
+                
+                // Прокрутка к сообщению
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                // Скрываем сообщение через 8 секунд
                 setTimeout(() => {
                     successMessage.classList.remove('show');
-                }, 6000);
+                }, 8000);
             }
         });
 
-        // ===== ВИДЖЕТ ЧАТА =====
+        // ===== CHAT WIDGET =====
         document.getElementById('chatWidget').addEventListener('click', () => {
             document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         });
 
-        // ===== EXIT-INTENT ПОПАП =====
+        // ===== EXIT POPUP =====
         const exitPopup = document.getElementById('exitPopup');
         const exitPopupClose = document.getElementById('exitPopupClose');
         const exitSubmit = document.getElementById('exitSubmit');
@@ -2236,14 +2444,12 @@
         const exitEmail = document.getElementById('exitEmail');
         let exitShown = false;
 
-        // Показать попап при уходе курсора за верхнюю границу окна (desktop)
         document.addEventListener('mouseout', (e) => {
             if (!exitShown && e.clientY <= 0 && window.innerWidth > 900) {
                 showExitPopup();
             }
         });
 
-        // Показать попап после 45 секунд на странице (mobile fallback)
         setTimeout(() => {
             if (!exitShown && window.innerWidth <= 900) {
                 showExitPopup();
@@ -2271,10 +2477,20 @@
         exitSubmit.addEventListener('click', () => {
             const email = exitEmail.value.trim();
             if (emailRegex.test(email)) {
-                alert('🎉 Промокод NEXUS10 отправлен на ' + email + '! Скидка 10% активна 24 часа.');
-                closeExitPopup();
+                exitEmail.value = '';
+                const btn = exitSubmit;
+                btn.textContent = '✓ Промокод отправлен!';
+                btn.style.background = 'linear-gradient(90deg, #4ade80, #22d3ee)';
+                setTimeout(() => {
+                    closeExitPopup();
+                    btn.textContent = 'Получить промокод';
+                    btn.style.background = '';
+                }, 2000);
             } else {
-                alert('Пожалуйста, введите корректный email');
+                exitEmail.style.borderColor = 'var(--error-red)';
+                setTimeout(() => {
+                    exitEmail.style.borderColor = '';
+                }, 2000);
             }
         });
     </script>
