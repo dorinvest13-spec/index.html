@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <style>
-        /* ===== 1. ПЛАВНАЯ ПРОКРУТКА ДЛЯ ВСЕЙ СТРАНИЦЫ ===== */
+        /* ===== 1. ПЛАВНАЯ ПРОКРУТКА ===== */
         html {
             scroll-behavior: smooth;
         }
@@ -97,9 +97,9 @@
             animation: gradientShift 4s linear infinite;
         }
 
-        /* Header */
+        /* Header (ФИКСИРОВАННЫЙ) */
         header {
-            position: fixed; /* Фиксируем шапку для удобной навигации */
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
@@ -223,8 +223,8 @@
             flex-wrap: wrap;
         }
 
+        /* Кнопки с анимированным градиентом */
         .btn-primary {
-            position: relative;
             padding: 1rem 2.2rem;
             background: linear-gradient(90deg, var(--purple) 0%, var(--blue) 25%, var(--cyan) 50%, var(--blue) 75%, var(--purple) 100%);
             background-size: 200% auto;
@@ -268,7 +268,7 @@
             transform: translateY(-3px);
         }
 
-        /* Hero Visual & Sphere */
+        /* Hero Visual с КАРТИНКОЙ */
         .hero-visual {
             position: relative;
             height: 500px;
@@ -278,33 +278,82 @@
             animation: fadeIn 1.5s ease-out;
         }
 
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.8) saturate(1.2);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.3), rgba(34, 211, 238, 0.2));
+            mix-blend-mode: overlay;
+        }
+
+        .hero-glass-card {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            right: 30px;
+            padding: 1.5rem;
+            background: rgba(10, 10, 15, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--purple) 0%, var(--cyan) 50%, var(--blue) 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s linear infinite;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        /* CSS Сфера (декоративная на фоне картинки) */
         .sphere {
             position: absolute;
-            width: 350px;
-            height: 350px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             animation: float 6s ease-in-out infinite;
-            opacity: 0.8;
-            z-index: 1;
+            opacity: 0.7;
+            z-index: -1;
+            top: 10%;
+            right: -5%;
         }
 
         .sphere::before {
             content: '';
             position: absolute;
-            inset: -30%;
+            inset: -50%;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(168, 85, 247, 0.4) 0%, rgba(34, 211, 238, 0.2) 40%, transparent 70%);
-            filter: blur(50px);
-        }
-
-        .sphere-body {
-            position: absolute;
-            inset: 0;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, transparent 30%),
-                        radial-gradient(circle at 70% 70%, rgba(168, 85, 247, 0.8) 0%, transparent 50%),
-                        radial-gradient(circle at 50% 50%, var(--blue) 0%, var(--purple) 60%, var(--bg-darker) 100%);
-            box-shadow: 0 0 80px rgba(168, 85, 247, 0.6), 0 0 120px rgba(34, 211, 238, 0.4), inset -30px -30px 80px rgba(0, 0, 0, 0.5);
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.5) 0%, rgba(34, 211, 238, 0.3) 40%, transparent 70%);
+            filter: blur(40px);
         }
 
         @keyframes float {
@@ -364,7 +413,7 @@
             border: 1px solid var(--glass-border);
             border-radius: 24px;
             backdrop-filter: blur(20px);
-            padding: 2.5rem;
+            overflow: hidden;
             transition: all 0.4s;
         }
 
@@ -374,17 +423,28 @@
             box-shadow: 0 20px 40px rgba(168, 85, 247, 0.15);
         }
 
+        .feature-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+
+        .feature-content {
+            padding: 2rem;
+        }
+
         .feature-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 16px;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
             background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(34, 211, 238, 0.2));
             border: 1px solid var(--glass-border);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .feature-card h3 {
@@ -396,9 +456,80 @@
         .feature-card p {
             color: var(--text-dim);
             font-size: 0.95rem;
+            line-height: 1.6;
         }
 
-        /* ===== 2. СЕКЦИЯ ЗАЯВКИ (ФОРМА) ===== */
+        /* How It Works Section */
+        .how-it-works {
+            position: relative;
+            z-index: 5;
+            padding: 8rem 5%;
+            background: linear-gradient(180deg, transparent 0%, rgba(168, 85, 247, 0.05) 50%, transparent 100%);
+        }
+
+        .how-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .how-step {
+            position: relative;
+            text-align: center;
+        }
+
+        .how-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s;
+        }
+
+        .how-step:hover .how-image {
+            transform: scale(1.05);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(90deg, var(--purple) 0%, var(--cyan) 50%, var(--blue) 100%);
+            background-size: 200% auto;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: white;
+            box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4);
+            animation: gradientShift 4s linear infinite;
+        }
+
+        .how-step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .how-step p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        /* ===== СЕКЦИЯ ЗАЯВКИ С ФОРМОЙ ===== */
         #contact {
             position: relative;
             z-index: 5;
@@ -437,10 +568,6 @@
             margin: 0 auto;
         }
 
-        .form-group {
-            position: relative;
-        }
-
         .form-input {
             width: 100%;
             padding: 1.2rem 1.5rem;
@@ -467,7 +594,8 @@
         .btn-submit {
             width: 100%;
             padding: 1.2rem;
-            background: linear-gradient(90deg, var(--purple), var(--blue));
+            background: linear-gradient(90deg, var(--purple) 0%, var(--blue) 25%, var(--cyan) 50%, var(--blue) 75%, var(--purple) 100%);
+            background-size: 200% auto;
             color: #fff;
             border: none;
             border-radius: 12px;
@@ -476,6 +604,7 @@
             cursor: pointer;
             transition: all 0.3s;
             box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
+            animation: gradientShift 4s linear infinite;
         }
 
         .btn-submit:hover {
@@ -506,8 +635,9 @@
             .hero p { margin: 0 auto 2.5rem; }
             .cta-group { justify-content: center; }
             .hero-visual { height: 400px; order: -1; }
-            .sphere { width: 280px; height: 280px; }
-            nav ul { display: none; } /* Для простоты на мобильном скрываем меню, можно добавить бургер */
+            .sphere { width: 100px; height: 100px; }
+            .how-grid { grid-template-columns: 1fr; }
+            nav ul { display: none; }
             .contact-card { padding: 3rem 1.5rem; }
         }
     </style>
@@ -526,7 +656,7 @@
         </nav>
     </header>
 
-    <!-- Главный экран (ID: home) -->
+    <!-- Главный экран -->
     <section id="home">
         <div class="hero-content">
             <div class="hero-badge fade-in fade-in-delay-1">Новая версия 2.0 уже доступна</div>
@@ -537,19 +667,38 @@
             <p class="fade-in fade-in-delay-3">Nexus — это платформа нового поколения, которая объединяет искусственный интеллект, аналитику и автоматизацию в одном пространстве.</p>
             <div class="cta-group fade-in fade-in-delay-4">
                 <a href="#contact" class="btn-primary">Попробовать бесплатно</a>
-                <!-- 3. КНОПКА ОПЛАТЫ С ПЕРЕХОДОМ В НОВУЮ ВКАДКУ -->
                 <a href="https://example.com/pay" target="_blank" class="btn-outline">Купить PRO</a>
             </div>
         </div>
 
         <div class="hero-visual">
-            <div class="sphere">
-                <div class="sphere-body"></div>
+            <div class="hero-image-container">
+                <img src="https://images.unsplash.com/photo-1677448681257-2409c1ee5699?w=800&h=600&fit=crop&q=80" 
+                     alt="AI Technology" 
+                     class="hero-image">
+                <div class="hero-overlay"></div>
+                <div class="hero-glass-card">
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Точность AI</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">10мс</div>
+                            <div class="stat-label">Скорость</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Работа</div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <div class="sphere"></div>
         </div>
     </section>
 
-    <!-- Блок возможностей (ID: features) -->
+    <!-- Блок возможностей -->
     <section id="features">
         <div class="section-header">
             <div class="section-tag">Возможности</div>
@@ -557,24 +706,75 @@
         </div>
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3>Молниеносная скорость</h3>
-                <p>Обработка данных в реальном времени с задержкой менее 10мс. Никаких компромиссов.</p>
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&q=80" 
+                     alt="Speed" 
+                     class="feature-image">
+                <div class="feature-content">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Молниеносная скорость</h3>
+                    <p>Обработка данных в реальном времени с задержкой менее 10мс. Никаких компромиссов.</p>
+                </div>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🧠</div>
-                <h3>AI-аналитика</h3>
-                <p>Нейросети предсказывают тренды и принимают решения за вас. Работает 24/7.</p>
+                <img src="https://images.unsplash.com/photo-1677448681257-2409c1ee5699?w=600&h=400&fit=crop&q=80" 
+                     alt="AI Analytics" 
+                     class="feature-image">
+                <div class="feature-content">
+                    <div class="feature-icon">🧠</div>
+                    <h3>AI-аналитика</h3>
+                    <p>Нейросети предсказывают тренды и принимают решения за вас. Работает 24/7.</p>
+                </div>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🔒</div>
-                <h3>Кибер-защита</h3>
-                <p>Шифрование военного уровня и нулевое знание. Ваши данные под надежным щитом.</p>
+                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee883c?w=600&h=400&fit=crop&q=80" 
+                     alt="Cybersecurity" 
+                     class="feature-image">
+                <div class="feature-content">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Кибер-защита</h3>
+                    <p>Шифрование военного уровня и нулевое знание. Ваши данные под надежным щитом.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 2. СЕКЦИЯ ЗАЯВКИ С ФОРМОЙ (ID: contact) -->
+    <!-- Как это работает -->
+    <section class="how-it-works">
+        <div class="how-container">
+            <div class="section-header">
+                <div class="section-tag">Как это работает</div>
+                <h2>Три шага к будущему</h2>
+            </div>
+            <div class="how-grid">
+                <div class="how-step">
+                    <div class="step-number">1</div>
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop&q=80" 
+                         alt="Connect" 
+                         class="how-image">
+                    <h3>Подключите данные</h3>
+                    <p>Интегрируйте Nexus с вашими источниками данных за считанные минуты</p>
+                </div>
+                <div class="how-step">
+                    <div class="step-number">2</div>
+                    <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?w=600&h=400&fit=crop&q=80" 
+                         alt="Analyze" 
+                         class="how-image">
+                    <h3>AI анализирует</h3>
+                    <p>Нейросеть обрабатывает информацию и находит скрытые паттерны</p>
+                </div>
+                <div class="how-step">
+                    <div class="step-number">3</div>
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&q=80" 
+                         alt="Results" 
+                         class="how-image">
+                    <h3>Получайте результат</h3>
+                    <p>Действуйте на основе точных прогнозов и автоматических рекомендаций</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция заявки -->
     <section id="contact">
         <div class="contact-card fade-in">
             <div class="section-tag">Свяжитесь с нами</div>
@@ -598,28 +798,20 @@
         <p>© 2026 Nexus Technologies. Создано для будущего.</p>
     </footer>
 
-    <!-- ===== 3. JAVASCRIPT ФУНКЦИОНАЛ ===== -->
+    <!-- JavaScript функционал -->
     <script>
-        // Получаем форму по ID
         const form = document.getElementById('applicationForm');
 
-        // Добавляем слушатель события отправки формы
         form.addEventListener('submit', function(event) {
-            // 1. Отменяем стандартное поведение (перезагрузку страницы)
             event.preventDefault();
 
-            // 2. Получаем значения из полей и убираем лишние пробелы по краям
             const name = document.getElementById('userName').value.trim();
             const contact = document.getElementById('userContact').value.trim();
 
-            // 3. Проверяем, заполнены ли поля
             if (name === '' || contact === '') {
                 alert('Пожалуйста, заполните все поля!');
             } else {
-                // 4. Если всё заполнено, показываем сообщение об успехе
                 alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами.');
-                
-                // 5. Очищаем поля формы
                 form.reset();
             }
         });
