@@ -194,7 +194,6 @@
             50% { opacity: 1; transform: scale(1.4); }
         }
 
-        /* HEADER */
         header {
             position: fixed;
             top: 0; left: 0; right: 0;
@@ -266,7 +265,6 @@
         .burger-btn.active span:nth-child(2) { opacity: 0; }
         .burger-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
 
-        /* HERO */
         #home {
             position: relative;
             z-index: 5;
@@ -453,7 +451,6 @@
             to { opacity: 1; }
         }
 
-        /* STATS BAR */
         .stats-bar {
             position: relative;
             z-index: 5;
@@ -488,7 +485,6 @@
             font-weight: 500;
         }
 
-        /* FEATURES */
         #features {
             position: relative;
             z-index: 5;
@@ -577,7 +573,6 @@
             line-height: 1.6;
         }
 
-        /* INLINE CTA */
         .inline-cta {
             margin-top: 4rem;
             text-align: center;
@@ -608,7 +603,6 @@
             font-weight: 400;
         }
 
-        /* HOW IT WORKS */
         .how-it-works {
             position: relative;
             z-index: 5;
@@ -669,7 +663,6 @@
             font-size: 0.95rem;
         }
 
-        /* PRICING */
         #pricing {
             position: relative;
             z-index: 5;
@@ -847,7 +840,6 @@
             box-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
         }
 
-        /* LOGOS BAR */
         .logos-bar {
             position: relative;
             z-index: 5;
@@ -896,7 +888,6 @@
             height: 32px;
         }
 
-        /* TESTIMONIALS */
         .testimonials {
             position: relative;
             z-index: 5;
@@ -1013,7 +1004,6 @@
             color: var(--text-dim);
         }
 
-        /* INLINE FAQ */
         .inline-faq {
             position: relative;
             z-index: 5;
@@ -1042,7 +1032,6 @@
             background: rgba(10, 10, 15, 0.7);
         }
 
-        /* FAQ */
         .faq-list {
             display: flex;
             flex-direction: column;
@@ -1120,7 +1109,6 @@
             padding: 0 2rem 1.5rem;
         }
 
-        /* FULL FAQ */
         #faq {
             position: relative;
             z-index: 5;
@@ -1129,7 +1117,6 @@
             margin: 0 auto;
         }
 
-        /* CONTACT */
         #contact {
             position: relative;
             z-index: 5;
@@ -1358,55 +1345,57 @@
             margin-bottom: 1.2rem;
         }
 
-        .social-icons {
+        .contact-buttons {
             display: flex;
-            justify-content: center;
-            gap: 1.2rem;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 400px;
+            margin: 0 auto;
         }
 
-        .social-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 14px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--glass-border);
+        .contact-btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-dim);
-            transition: all 0.3s;
+            gap: 0.8rem;
+            padding: 1rem 1.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: var(--text);
             text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
         }
 
-        .social-icon svg {
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            border-color: var(--cyan);
+            box-shadow: 0 0 25px rgba(34, 211, 238, 0.3);
+        }
+
+        .contact-btn svg {
             width: 24px;
             height: 24px;
         }
 
-        .social-icon:hover { transform: translateY(-4px); }
-
-        .social-telegram:hover {
-            color: #29b6f6;
+        .contact-btn.telegram:hover {
             border-color: #29b6f6;
-            background: rgba(41, 182, 246, 0.1);
             box-shadow: 0 0 25px rgba(41, 182, 246, 0.35);
         }
 
-        .social-whatsapp:hover {
-            color: #25d366;
+        .contact-btn.whatsapp:hover {
             border-color: #25d366;
-            background: rgba(37, 211, 102, 0.1);
             box-shadow: 0 0 25px rgba(37, 211, 102, 0.35);
         }
 
-        .social-email:hover {
-            color: var(--cyan);
+        .contact-btn.email:hover {
             border-color: var(--cyan);
-            background: rgba(34, 211, 238, 0.1);
             box-shadow: 0 0 25px rgba(34, 211, 238, 0.35);
         }
 
-        /* FOOTER */
         .footer-extended {
             position: relative;
             z-index: 5;
@@ -1513,7 +1502,6 @@
 
         .footer-legal a:hover { color: var(--cyan); }
 
-        /* CHAT WIDGET */
         .chat-widget {
             position: fixed;
             bottom: 25px;
@@ -1549,7 +1537,6 @@
             50% { box-shadow: 0 8px 35px rgba(34, 211, 238, 0.6); }
         }
 
-        /* EXIT POPUP */
         .exit-popup-overlay {
             position: fixed;
             inset: 0;
@@ -1677,7 +1664,6 @@
 
         .exit-popup-skip:hover { color: var(--text); }
 
-        /* MOBILE */
         @media (max-width: 900px) {
             .burger-btn { display: flex; }
 
@@ -1728,6 +1714,31 @@
         @media (max-width: 500px) {
             .footer-grid { grid-template-columns: 1fr; }
         }
+
+        /* ===== МОБИЛЬНАЯ ОПТИМИЗАЦИЯ ФОРМЫ ===== */
+        @media (max-width: 768px) {
+            .contact-form .form-input,
+            .contact-form .btn-submit {
+                width: 100%;
+                min-height: 48px;
+                font-size: 16px;
+            }
+
+            .contact-form textarea.form-input {
+                min-height: 120px;
+                resize: vertical;
+            }
+
+            .contact-buttons {
+                max-width: 100%;
+            }
+
+            .contact-btn {
+                width: 100%;
+                min-height: 48px;
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1752,7 +1763,6 @@
 
     <main>
 
-        <!-- HERO -->
         <section id="home" aria-label="Главный экран">
             <div class="hero-content">
                 <div class="hero-badge fade-in fade-in-delay-1">Новая версия 2.0 уже доступна</div>
@@ -1810,7 +1820,6 @@
             </div>
         </section>
 
-        <!-- STATS BAR -->
         <section class="stats-bar" aria-label="Статистика компании">
             <div class="stats-bar-grid">
                 <div class="stats-bar-item">
@@ -1832,7 +1841,6 @@
             </div>
         </section>
 
-        <!-- FEATURES -->
         <section id="features" aria-labelledby="features-heading">
             <div class="section-header">
                 <div class="section-tag">Возможности</div>
@@ -1885,7 +1893,6 @@
             </div>
         </section>
 
-        <!-- HOW IT WORKS -->
         <section class="how-it-works" aria-labelledby="how-heading">
             <div class="how-container">
                 <div class="section-header">
@@ -1934,7 +1941,6 @@
             </div>
         </section>
 
-        <!-- PRICING -->
         <section id="pricing" aria-labelledby="pricing-heading">
             <div class="pricing-header">
                 <div class="pricing-badge-top">
@@ -1996,7 +2002,6 @@
             </div>
         </section>
 
-        <!-- LOGOS BAR -->
         <section class="logos-bar" aria-label="Нам доверяют компании">
             <p>Нам доверяют лидеры рынка</p>
             <div class="logos-grid">
@@ -2037,7 +2042,6 @@
             </div>
         </section>
 
-        <!-- TESTIMONIALS -->
         <section class="testimonials" aria-labelledby="testimonials-heading">
             <div class="section-header">
                 <div class="section-tag">Отзывы</div>
@@ -2103,7 +2107,6 @@
             </div>
         </section>
 
-        <!-- INLINE FAQ перед формой -->
         <section class="inline-faq" aria-label="Частые вопросы перед заявкой">
             <div class="inline-faq-header">
                 <h3>Остались вопросы перед заявкой?</h3>
@@ -2132,7 +2135,6 @@
             </div>
         </section>
 
-        <!-- CONTACT -->
         <section id="contact" aria-labelledby="contact-heading">
             <div class="contact-card fade-in">
                 <div class="section-tag">Быстрый старт</div>
@@ -2184,25 +2186,31 @@
 
                 <div class="quick-contact">
                     <p>Или напишите нам напрямую:</p>
-                    <div class="social-icons">
-                        <a href="https://t.me/nexus_support" target="_blank" rel="noopener noreferrer" class="social-icon social-telegram" title="Telegram">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                    <div class="contact-buttons">
+                        <a href="https://t.me/ваш_никнейм" target="_blank" rel="noopener noreferrer" class="contact-btn telegram">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                            </svg>
+                            Telegram
                         </a>
-                        <a href="https://wa.me/79990000000" target="_blank" rel="noopener noreferrer" class="social-icon social-whatsapp" title="WhatsApp">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        <a href="https://wa.me/79990000000" target="_blank" rel="noopener noreferrer" class="contact-btn whatsapp">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                            WhatsApp
                         </a>
-                        <a href="mailto:hello@nexus.tech" class="social-icon social-email" title="Email">
+                        <a href="mailto:hello@nexus.com" class="contact-btn email">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="2" y="4" width="20" height="16" rx="2"></rect>
                                 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                             </svg>
+                            Email
                         </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- FULL FAQ -->
         <section id="faq" aria-labelledby="faq-heading">
             <div class="section-header" style="text-align: center; max-width: 100%; margin: 0 auto 2rem;">
                 <div class="section-tag">FAQ</div>
@@ -2263,7 +2271,6 @@
 
     </main>
 
-    <!-- FOOTER -->
     <footer class="footer-extended">
         <div class="footer-container">
             <div class="footer-grid">
@@ -2325,7 +2332,6 @@
         </div>
     </footer>
 
-    <!-- CHAT WIDGET -->
     <button class="chat-widget" id="chatWidget" aria-label="Открыть чат поддержки">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
@@ -2334,7 +2340,6 @@
         </svg>
     </button>
 
-    <!-- EXIT POPUP -->
     <div class="exit-popup-overlay" id="exitPopup">
         <div class="exit-popup">
             <button class="exit-popup-close" id="exitPopupClose" aria-label="Закрыть">✕</button>
@@ -2349,7 +2354,6 @@
     </div>
 
     <script>
-        // БУРГЕР-МЕНЮ
         const burgerBtn = document.getElementById('burgerBtn');
         const navMenu = document.getElementById('navMenu');
 
@@ -2369,7 +2373,6 @@
             }
         });
 
-        // FAQ АККОРДЕОН
         document.querySelectorAll('.faq-question').forEach(btn => {
             btn.addEventListener('click', () => {
                 const item = btn.parentElement;
@@ -2384,7 +2387,6 @@
             });
         });
 
-        // ФОРМА ЗАЯВКИ
         const form = document.getElementById('applicationForm');
         const nameInput = document.getElementById('userName');
         const contactInput = document.getElementById('userContact');
@@ -2468,12 +2470,10 @@
             }
         });
 
-        // CHAT WIDGET
         document.getElementById('chatWidget').addEventListener('click', () => {
             document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         });
 
-        // EXIT POPUP
         const exitPopup = document.getElementById('exitPopup');
         const exitPopupClose = document.getElementById('exitPopupClose');
         const exitSubmit = document.getElementById('exitSubmit');
