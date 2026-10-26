@@ -4,26 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- ===== SEO ОПТИМИЗАЦИЯ ===== -->
     <title>Nexus — AI-платформа для аналитики и автоматизации | Демо-доступ</title>
     <meta name="description" content="Nexus — AI-платформа для аналитики и автоматизации. Демо-доступ, 500+ клиентов, 99.9% uptime. Подключение за 3 шага.">
     <meta name="keywords" content="AI-платформа, аналитика данных, автоматизация бизнеса, искусственный интеллект, нейросети, Nexus">
     <meta name="author" content="Nexus Technologies">
     <meta name="robots" content="index, follow">
 
-    <!-- Open Graph теги для соцсетей -->
     <meta property="og:title" content="Nexus — AI-платформа для аналитики и автоматизации">
-    <meta property="og:description" content="AI-платформа нового поколения. 500+ клиентов, 99.9% uptime. Демо-доступ бесплатно за 15 минут.">
+    <meta property="og:description" content="AI-платформа нового поколения. 500+ клиентов, 99.9% uptime. Демо-доступ бесплатно.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&h=630&fit=crop&q=80">
     <meta property="og:url" content="https://nexus.tech">
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Nexus — AI-платформа для аналитики">
-    <meta name="twitter:description" content="Демо-доступ, 500+ клиентов, 99.9% uptime.">
 
-    <!-- Favicon (встроенный SVG) -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23a855f7'/><stop offset='100%25' stop-color='%2322d3ee'/></linearGradient></defs><circle cx='50' cy='50' r='45' fill='url(%23g)'/><text x='50' y='68' font-family='Arial' font-size='50' font-weight='bold' fill='white' text-anchor='middle'>N</text></svg>">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,7 +103,6 @@
             animation: gradientShift 8s ease-in-out infinite;
         }
 
-        /* ===== ЗЕМЛЯ СО СПУТНИКОМ ===== */
         .earth-system {
             position: absolute;
             top: -40px;
@@ -201,7 +194,7 @@
             50% { opacity: 1; transform: scale(1.4); }
         }
 
-        /* ===== HEADER ===== */
+        /* HEADER */
         header {
             position: fixed;
             top: 0; left: 0; right: 0;
@@ -273,7 +266,7 @@
         .burger-btn.active span:nth-child(2) { opacity: 0; }
         .burger-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
 
-        /* ===== HERO ===== */
+        /* HERO */
         #home {
             position: relative;
             z-index: 5;
@@ -460,7 +453,7 @@
             to { opacity: 1; }
         }
 
-        /* ===== STATS BAR ===== */
+        /* STATS BAR */
         .stats-bar {
             position: relative;
             z-index: 5;
@@ -495,7 +488,7 @@
             font-weight: 500;
         }
 
-        /* ===== FEATURES ===== */
+        /* FEATURES */
         #features {
             position: relative;
             z-index: 5;
@@ -584,7 +577,7 @@
             line-height: 1.6;
         }
 
-        /* ===== INLINE CTA ===== */
+        /* INLINE CTA */
         .inline-cta {
             margin-top: 4rem;
             text-align: center;
@@ -615,7 +608,7 @@
             font-weight: 400;
         }
 
-        /* ===== HOW IT WORKS ===== */
+        /* HOW IT WORKS */
         .how-it-works {
             position: relative;
             z-index: 5;
@@ -676,7 +669,7 @@
             font-size: 0.95rem;
         }
 
-        /* ===== PRICING ===== */
+        /* PRICING */
         #pricing {
             position: relative;
             z-index: 5;
@@ -854,7 +847,7 @@
             box-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
         }
 
-        /* ===== LOGOS BAR (НОВОЕ) ===== */
+        /* LOGOS BAR */
         .logos-bar {
             position: relative;
             z-index: 5;
@@ -883,9 +876,7 @@
             transition: opacity 0.3s;
         }
 
-        .logos-grid:hover {
-            opacity: 0.9;
-        }
+        .logos-grid:hover { opacity: 0.9; }
 
         .logo-item {
             display: flex;
@@ -898,16 +889,14 @@
             transition: color 0.3s;
         }
 
-        .logo-item:hover {
-            color: var(--text);
-        }
+        .logo-item:hover { color: var(--text); }
 
         .logo-item svg {
             width: 32px;
             height: 32px;
         }
 
-        /* ===== TESTIMONIALS ===== */
+        /* TESTIMONIALS */
         .testimonials {
             position: relative;
             z-index: 5;
@@ -1024,15 +1013,36 @@
             color: var(--text-dim);
         }
 
-        /* ===== FAQ ===== */
-        #faq {
+        /* INLINE FAQ */
+        .inline-faq {
             position: relative;
             z-index: 5;
-            padding: 8rem 5%;
-            max-width: 900px;
+            padding: 4rem 5% 2rem;
+            max-width: 800px;
             margin: 0 auto;
         }
 
+        .inline-faq-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .inline-faq-header h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .inline-faq-header p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        .inline-faq .faq-item {
+            background: rgba(10, 10, 15, 0.7);
+        }
+
+        /* FAQ */
         .faq-list {
             display: flex;
             flex-direction: column;
@@ -1110,36 +1120,16 @@
             padding: 0 2rem 1.5rem;
         }
 
-        /* ===== INLINE FAQ (перед формой) ===== */
-        .inline-faq {
+        /* FULL FAQ */
+        #faq {
             position: relative;
             z-index: 5;
-            padding: 4rem 5% 2rem;
-            max-width: 800px;
+            padding: 8rem 5%;
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        .inline-faq-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .inline-faq-header h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .inline-faq-header p {
-            color: var(--text-dim);
-            font-size: 0.95rem;
-        }
-
-        .inline-faq .faq-item {
-            background: rgba(10, 10, 15, 0.7);
-        }
-
-        /* ===== CONTACT FORM ===== */
+        /* CONTACT */
         #contact {
             position: relative;
             z-index: 5;
@@ -1204,7 +1194,6 @@
             box-shadow: 0 0 20px rgba(34, 211, 238, 0.1);
         }
 
-        /* Валидация: красная подсветка */
         .form-input.error {
             border-color: var(--error-red);
             background: rgba(239, 68, 68, 0.06);
@@ -1275,7 +1264,6 @@
             box-shadow: 0 0 40px rgba(168, 85, 247, 0.6);
         }
 
-        /* Зеленое сообщение об успехе */
         .success-message {
             display: none;
             margin-top: 1.5rem;
@@ -1302,7 +1290,6 @@
             flex-shrink: 0;
         }
 
-        /* Политика конфиденциальности */
         .privacy-note {
             margin-top: 1rem;
             font-size: 0.8rem;
@@ -1313,6 +1300,50 @@
         .privacy-note a {
             color: var(--cyan);
             text-decoration: underline;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            text-align: left;
+            margin-top: 0.5rem;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-top: 0.3rem;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--purple);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .checkbox-group label {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            line-height: 1.5;
+            cursor: pointer;
+        }
+
+        .checkbox-group label a {
+            color: var(--cyan);
+            text-decoration: underline;
+        }
+
+        .checkbox-group.error {
+            animation: shake 0.4s ease-in-out;
+        }
+
+        .checkbox-error {
+            color: #f87171;
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
+            display: none;
+        }
+
+        .checkbox-group.error + .checkbox-error {
+            display: block;
         }
 
         .quick-contact {
@@ -1375,7 +1406,7 @@
             box-shadow: 0 0 25px rgba(34, 211, 238, 0.35);
         }
 
-        /* ===== FOOTER ===== */
+        /* FOOTER */
         .footer-extended {
             position: relative;
             z-index: 5;
@@ -1482,7 +1513,7 @@
 
         .footer-legal a:hover { color: var(--cyan); }
 
-        /* ===== CHAT WIDGET ===== */
+        /* CHAT WIDGET */
         .chat-widget {
             position: fixed;
             bottom: 25px;
@@ -1518,7 +1549,7 @@
             50% { box-shadow: 0 8px 35px rgba(34, 211, 238, 0.6); }
         }
 
-        /* ===== EXIT POPUP ===== */
+        /* EXIT POPUP */
         .exit-popup-overlay {
             position: fixed;
             inset: 0;
@@ -1646,7 +1677,7 @@
 
         .exit-popup-skip:hover { color: var(--text); }
 
-        /* ===== MOBILE ===== */
+        /* MOBILE */
         @media (max-width: 900px) {
             .burger-btn { display: flex; }
 
@@ -1846,7 +1877,6 @@
                 </article>
             </div>
 
-            <!-- INLINE CTA после возможностей -->
             <div class="inline-cta">
                 <h3>Готовы увидеть Nexus в действии?</h3>
                 <p>Запустите пробный период без обязательств — убедитесь сами.</p>
@@ -1895,7 +1925,6 @@
                     </article>
                 </div>
 
-                <!-- INLINE CTA после как это работает -->
                 <div class="inline-cta">
                     <h3>Всего 3 шага до мощной аналитики</h3>
                     <p>Получите персональный демо-доступ и оцените возможности Nexus.</p>
@@ -1908,7 +1937,6 @@
         <!-- PRICING -->
         <section id="pricing" aria-labelledby="pricing-heading">
             <div class="pricing-header">
-                <!-- Бейдж доверия -->
                 <div class="pricing-badge-top">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
@@ -1920,7 +1948,6 @@
                 <h2 id="pricing-heading">Выберите план, который подходит вам</h2>
             </div>
             <div class="pricing-grid">
-                <!-- FREE -->
                 <article class="pricing-card">
                     <h3>Free</h3>
                     <div class="price">0₽<small>/мес</small></div>
@@ -1936,7 +1963,6 @@
                     <a href="#contact" class="btn-pricing">Начать бесплатно</a>
                 </article>
 
-                <!-- PRO -->
                 <article class="pricing-card featured">
                     <div class="pricing-badge">ПОПУЛЯРНЫЙ</div>
                     <h3>Pro</h3>
@@ -1953,7 +1979,6 @@
                     <a href="#contact" class="btn-pricing">Попробовать 14 дней бесплатно</a>
                 </article>
 
-                <!-- ENTERPRISE -->
                 <article class="pricing-card">
                     <h3>Enterprise</h3>
                     <div class="price">Custom</div>
@@ -1971,7 +1996,7 @@
             </div>
         </section>
 
-        <!-- LOGOS BAR (НОВОЕ) -->
+        <!-- LOGOS BAR -->
         <section class="logos-bar" aria-label="Нам доверяют компании">
             <p>Нам доверяют лидеры рынка</p>
             <div class="logos-grid">
@@ -2022,11 +2047,11 @@
                 <article class="testimonial-card">
                     <div class="testimonial-quote" aria-hidden="true">"</div>
                     <div class="rating-stars" aria-label="Оценка 5 из 5 звёзд">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                     </div>
                     <p class="testimonial-text">«Nexus полностью изменил наш подход к аналитике. Раньше мы тратили часы на сбор данных вручную, теперь всё происходит автоматически. За первый месяц конверсия выросла на 34%.»</p>
                     <div class="testimonial-author">
@@ -2041,11 +2066,11 @@
                 <article class="testimonial-card">
                     <div class="testimonial-quote" aria-hidden="true">"</div>
                     <div class="rating-stars" aria-label="Оценка 5 из 5 звёзд">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                     </div>
                     <p class="testimonial-text">«Подключили команду за один день — интерфейс интуитивно понятный даже для не-технических сотрудников. Поддержка отвечает молниеносно, всегда помогают. Рекомендую!»</p>
                     <div class="testimonial-author">
@@ -2060,11 +2085,11 @@
                 <article class="testimonial-card">
                     <div class="testimonial-quote" aria-hidden="true">"</div>
                     <div class="rating-stars" aria-label="Оценка 5 из 5 звёзд">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                     </div>
                     <p class="testimonial-text">«Как технический директор, я особенно ценю качество интеграции и безопасность. Шифрование данных на уровне банковских систем. За полгода — ни одного сбоя.»</p>
                     <div class="testimonial-author">
@@ -2107,14 +2132,14 @@
             </div>
         </section>
 
-        <!-- CONTACT FORM -->
+        <!-- CONTACT -->
         <section id="contact" aria-labelledby="contact-heading">
             <div class="contact-card fade-in">
                 <div class="section-tag">Быстрый старт</div>
                 <h2 id="contact-heading" class="gradient-animated">Получить консультацию</h2>
                 <p>Заполните форму, и наш специалист свяжется с вами в течение 15 минут.</p>
                 
-                <form id="applicationForm" class="contact-form" novalidate aria-label="Форма для получения консультации">
+                <form id="applicationForm" class="contact-form" novalidate>
                     <div class="form-group">
                         <input type="text" id="userName" class="form-input" placeholder="Ваше имя" aria-label="Ваше имя" autocomplete="name">
                         <div class="error-message" id="nameError"></div>
@@ -2128,12 +2153,18 @@
                     </div>
 
                     <div class="response-note">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="10"></circle>
                             <polyline points="12 6 12 12 16 14"></polyline>
                         </svg>
                         <span>Мы ответим в течение 15 минут в рабочее время</span>
                     </div>
+
+                    <div class="checkbox-group" id="privacyCheckbox">
+                        <input type="checkbox" id="privacyAgree">
+                        <label for="privacyAgree">Я согласен с <a href="#" onclick="event.preventDefault(); alert('Политика конфиденциальности Nexus Technologies');">политикой конфиденциальности</a> и даю согласие на обработку персональных данных.</label>
+                    </div>
+                    <div class="checkbox-error" id="privacyError">Пожалуйста, подтвердите согласие с политикой конфиденциальности</div>
 
                     <button type="submit" class="btn-submit">Получить консультацию</button>
                     <span class="btn-cta-subtext">Бесплатно · Без обязательств · Ответим за 15 минут</span>
@@ -2147,25 +2178,21 @@
                     </div>
 
                     <p class="privacy-note">
-                        Нажимая кнопку, вы соглашаетесь с <a href="#">политикой конфиденциальности</a> и даёте согласие на обработку персональных данных.
+                        Нажимая кнопку, вы соглашаетесь с <a href="#" onclick="event.preventDefault(); alert('Политика конфиденциальности Nexus Technologies');">политикой конфиденциальности</a>.
                     </p>
                 </form>
 
                 <div class="quick-contact">
                     <p>Или напишите нам напрямую:</p>
                     <div class="social-icons">
-                        <a href="https://t.me/nexus_support" target="_blank" rel="noopener noreferrer" class="social-icon social-telegram" title="Telegram" aria-label="Написать нам в Telegram">
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-                            </svg>
+                        <a href="https://t.me/nexus_support" target="_blank" rel="noopener noreferrer" class="social-icon social-telegram" title="Telegram">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
                         </a>
-                        <a href="https://wa.me/79990000000" target="_blank" rel="noopener noreferrer" class="social-icon social-whatsapp" title="WhatsApp" aria-label="Написать нам в WhatsApp">
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                            </svg>
+                        <a href="https://wa.me/79990000000" target="_blank" rel="noopener noreferrer" class="social-icon social-whatsapp" title="WhatsApp">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                         </a>
-                        <a href="mailto:hello@nexus.tech" class="social-icon social-email" title="Email" aria-label="Написать нам на Email">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <a href="mailto:hello@nexus.tech" class="social-icon social-email" title="Email">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="2" y="4" width="20" height="16" rx="2"></rect>
                                 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                             </svg>
@@ -2198,7 +2225,7 @@
                         <span class="faq-icon"></span>
                     </button>
                     <div class="faq-answer">
-                        <p>Nexus интегрируется с более чем 200 сервисами: Slack, Google Analytics, HubSpot, Salesforce, 1С, Битрикс24, PostgreSQL, MongoDB и многие другие. Полный список в документации.</p>
+                        <p>Nexus интегрируется с более чем 200 сервисами: Slack, Google Analytics, HubSpot, Salesforce, 1С, Битрикс24, PostgreSQL, MongoDB и многие другие.</p>
                     </div>
                 </div>
 
@@ -2219,6 +2246,16 @@
                     </button>
                     <div class="faq-answer">
                         <p>На тарифе Pro — поддержка 24/7 через чат, Telegram и Email с временем отклика до 15 минут. Enterprise клиенты получают выделенного менеджера и SLA 99.99%.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Могу ли я вернуть деньги?</span>
+                        <span class="faq-icon"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Да, мы предоставляем гарантию возврата денег в течение 30 дней после оплаты, если платформа вам не подошла. Без вопросов и скрытых условий.</p>
                     </div>
                 </div>
             </div>
@@ -2280,9 +2317,9 @@
             <div class="footer-bottom">
                 <p>© 2026 Nexus Technologies. Все права защищены.</p>
                 <div class="footer-legal">
-                    <a href="#">Политика конфиденциальности</a>
-                    <a href="#">Условия использования</a>
-                    <a href="#">Cookie</a>
+                    <a href="#" onclick="event.preventDefault(); alert('Политика конфиденциальности Nexus Technologies');">Политика конфиденциальности</a>
+                    <a href="#" onclick="event.preventDefault(); alert('Условия использования сервиса Nexus');">Условия использования</a>
+                    <a href="#" onclick="event.preventDefault(); alert('Политика использования cookies');">Cookie</a>
                 </div>
             </div>
         </div>
@@ -2312,7 +2349,7 @@
     </div>
 
     <script>
-        // ===== БУРГЕР-МЕНЮ =====
+        // БУРГЕР-МЕНЮ
         const burgerBtn = document.getElementById('burgerBtn');
         const navMenu = document.getElementById('navMenu');
 
@@ -2332,7 +2369,7 @@
             }
         });
 
-        // ===== FAQ АККОРДЕОН =====
+        // FAQ АККОРДЕОН
         document.querySelectorAll('.faq-question').forEach(btn => {
             btn.addEventListener('click', () => {
                 const item = btn.parentElement;
@@ -2347,11 +2384,12 @@
             });
         });
 
-        // ===== ФОРМА ЗАЯВКИ (БЕЗ ALERT) =====
+        // ФОРМА ЗАЯВКИ
         const form = document.getElementById('applicationForm');
         const nameInput = document.getElementById('userName');
         const contactInput = document.getElementById('userContact');
-        const commentInput = document.getElementById('userComment');
+        const privacyCheckbox = document.getElementById('privacyAgree');
+        const privacyCheckboxGroup = document.getElementById('privacyCheckbox');
         const successMessage = document.getElementById('successMessage');
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -2369,9 +2407,11 @@
             input.parentElement.classList.remove('show-error');
         }
 
-        // Убираем ошибку при вводе
         nameInput.addEventListener('input', () => hideError(nameInput, 'nameError'));
         contactInput.addEventListener('input', () => hideError(contactInput, 'contactError'));
+        privacyCheckbox.addEventListener('change', () => {
+            privacyCheckboxGroup.classList.remove('error');
+        });
 
         form.addEventListener('submit', function(event) {
             event.preventDefault();
@@ -2379,7 +2419,6 @@
 
             successMessage.classList.remove('show');
 
-            // Валидация имени
             const name = nameInput.value.trim();
             if (name === '') {
                 showError(nameInput, 'nameError', 'Пожалуйста, введите ваше имя');
@@ -2391,9 +2430,7 @@
                 hideError(nameInput, 'nameError');
             }
 
-            // Валидация контакта
             const contact = contactInput.value.trim();
-
             if (contact === '') {
                 showError(contactInput, 'contactError', 'Пожалуйста, укажите контакт для связи');
                 isValid = false;
@@ -2416,27 +2453,27 @@
                 isValid = false;
             }
 
-            // Успешная отправка
+            if (!privacyCheckbox.checked) {
+                privacyCheckboxGroup.classList.add('error');
+                isValid = false;
+            }
+
             if (isValid) {
                 successMessage.classList.add('show');
                 form.reset();
-                
-                // Прокрутка к сообщению
                 successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-                // Скрываем сообщение через 8 секунд
                 setTimeout(() => {
                     successMessage.classList.remove('show');
                 }, 8000);
             }
         });
 
-        // ===== CHAT WIDGET =====
+        // CHAT WIDGET
         document.getElementById('chatWidget').addEventListener('click', () => {
             document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         });
 
-        // ===== EXIT POPUP =====
+        // EXIT POPUP
         const exitPopup = document.getElementById('exitPopup');
         const exitPopupClose = document.getElementById('exitPopupClose');
         const exitSubmit = document.getElementById('exitSubmit');
