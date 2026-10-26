@@ -3,7 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus — Будущее уже здесь</title>
+
+    <!-- ===== SEO ОПТИМИЗАЦИЯ ===== -->
+    <title>Nexus — AI-платформа для аналитики и автоматизации | Демо-доступ</title>
+    <meta name="description" content="Nexus — AI-платформа нового поколения для аналитики и автоматизации бизнеса. Точность 98%, скорость 10мс, работа 24/7. Получите бесплатный демо-доступ за 15 минут.">
+    <meta name="keywords" content="AI-платформа, аналитика данных, автоматизация бизнеса, искусственный интеллект, нейросети, Nexus">
+    <meta name="author" content="Nexus Technologies">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph для соцсетей -->
+    <meta property="og:title" content="Nexus — AI-платформа для аналитики и автоматизации">
+    <meta property="og:description" content="Платформа, которая объединяет искусственный интеллект, аналитику и автоматизацию. Получите демо-доступ бесплатно.">
+    <meta property="og:type" content="website">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
@@ -21,6 +33,8 @@
             --text-dim: #9ca3af;
             --glass-bg: rgba(255, 255, 255, 0.04);
             --glass-border: rgba(255, 255, 255, 0.1);
+            --error-red: #ef4444;
+            --star-gold: #fbbf24;
         }
 
         body {
@@ -65,7 +79,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ===== МЯГКАЯ АНИМАЦИЯ ГРАДИЕНТОВ ===== */
         @keyframes gradientShift {
             0%   { background-position: 0% 50%; }
             50%  { background-position: 100% 50%; }
@@ -81,7 +94,7 @@
             animation: gradientShift 8s ease-in-out infinite;
         }
 
-        /* ===== ЗЕМЛЯ СО СПУТНИКОМ ===== */
+        /* Земля со спутником */
         .earth-system {
             position: absolute;
             top: -40px;
@@ -92,7 +105,6 @@
             animation: float 7s ease-in-out infinite;
         }
 
-        /* Атмосферное свечение вокруг планеты */
         .earth-glow {
             position: absolute;
             inset: 22%;
@@ -107,24 +119,18 @@
             50% { opacity: 1; transform: scale(1.08); }
         }
 
-        /* Сама планета Земля */
         .earth {
             position: absolute;
-            top: 50%;
-            left: 50%;
+            top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            width: 115px;
-            height: 115px;
+            width: 115px; height: 115px;
             border-radius: 50%;
             background:
-                /* Блик солнца */
                 radial-gradient(circle at 28% 25%, rgba(255,255,255,0.4) 0%, transparent 22%),
-                /* Континенты */
                 radial-gradient(ellipse 30px 22px at 38% 32%, rgba(74, 222, 128, 0.6) 0%, transparent 70%),
                 radial-gradient(ellipse 24px 30px at 64% 58%, rgba(34, 197, 94, 0.55) 0%, transparent 70%),
                 radial-gradient(ellipse 18px 14px at 30% 70%, rgba(74, 222, 128, 0.5) 0%, transparent 70%),
                 radial-gradient(ellipse 14px 11px at 72% 28%, rgba(34, 197, 94, 0.45) 0%, transparent 70%),
-                /* Океан с градиентом для объёма */
                 radial-gradient(circle at 32% 30%, #4a9eff 0%, #2563eb 40%, #1e40af 70%, #0c2d6b 100%);
             box-shadow:
                 inset -22px -22px 45px rgba(0, 0, 0, 0.65),
@@ -133,13 +139,10 @@
                 0 0 90px rgba(34, 211, 238, 0.28);
         }
 
-        /* Орбитальное кольцо со спутником (3D наклон) */
         .orbit-ring {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 210px;
-            height: 210px;
+            top: 50%; left: 50%;
+            width: 210px; height: 210px;
             margin: -105px 0 0 -105px;
             border: 1px solid rgba(34, 211, 238, 0.3);
             border-radius: 50%;
@@ -147,15 +150,12 @@
             animation: orbitSpin 8s linear infinite;
         }
 
-        /* Спутник на орбите */
         .orbit-ring::before {
             content: '';
             position: absolute;
-            top: -8px;
-            left: 50%;
+            top: -8px; left: 50%;
             transform: translateX(-50%);
-            width: 16px;
-            height: 16px;
+            width: 16px; height: 16px;
             border-radius: 50%;
             background: radial-gradient(circle at 30% 30%, #ffffff 0%, #a5f3fc 40%, #22d3ee 100%);
             box-shadow:
@@ -169,11 +169,9 @@
             to { transform: rotateX(68deg) rotateZ(360deg); }
         }
 
-        /* Звёздочки вокруг */
         .star {
             position: absolute;
-            width: 3px;
-            height: 3px;
+            width: 3px; height: 3px;
             background: #fff;
             border-radius: 50%;
             animation: twinkle 3.5s ease-in-out infinite;
@@ -188,7 +186,6 @@
             50% { opacity: 1; transform: scale(1.4); }
         }
 
-        /* Header */
         header {
             position: fixed;
             top: 0; left: 0; right: 0;
@@ -570,6 +567,126 @@
             font-size: 0.95rem;
         }
 
+        /* Блок отзывов */
+        .testimonials {
+            position: relative;
+            z-index: 5;
+            padding: 8rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            position: relative;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            padding: 2.5rem;
+            transition: all 0.4s;
+            overflow: hidden;
+            background-color: rgba(10, 10, 15, 0.5);
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--purple), var(--cyan), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(168, 85, 247, 0.3);
+            box-shadow: 0 20px 40px rgba(168, 85, 247, 0.15);
+        }
+
+        .testimonial-card:hover::before {
+            opacity: 1;
+        }
+
+        .testimonial-quote {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.8rem;
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.3), rgba(34, 211, 238, 0.3));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: Georgia, serif;
+            user-select: none;
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 1.3rem;
+        }
+
+        .rating-stars svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--star-gold);
+            filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.5));
+        }
+
+        .testimonial-text {
+            color: var(--text);
+            font-size: 0.98rem;
+            line-height: 1.7;
+            margin-bottom: 1.8rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #fff;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .avatar-purple { background: linear-gradient(135deg, #a855f7, #7c3aed); }
+        .avatar-blue { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+        .avatar-cyan { background: linear-gradient(135deg, #22d3ee, #0891b2); }
+
+        .author-info { text-align: left; }
+
+        .author-info h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.1rem;
+        }
+
+        .author-info p {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        /* Секция заявки */
         #contact {
             position: relative;
             z-index: 5;
@@ -603,9 +720,14 @@
         .contact-form {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1.2rem;
             max-width: 500px;
             margin: 0 auto;
+        }
+
+        .form-group {
+            position: relative;
+            text-align: left;
         }
 
         .form-input {
@@ -629,6 +751,54 @@
             box-shadow: 0 0 20px rgba(34, 211, 238, 0.1);
         }
 
+        .form-input.error {
+            border-color: var(--error-red);
+            background: rgba(239, 68, 68, 0.06);
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.12);
+            animation: shake 0.4s ease-in-out;
+        }
+
+        .error-message {
+            display: none;
+            color: #f87171;
+            font-size: 0.85rem;
+            margin-top: 0.4rem;
+            padding-left: 0.3rem;
+            animation: fadeInError 0.3s ease-out;
+        }
+
+        .form-group.show-error .error-message {
+            display: block;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-6px); }
+            75% { transform: translateX(6px); }
+        }
+
+        @keyframes fadeInError {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .response-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+
+        .response-note svg {
+            width: 16px;
+            height: 16px;
+            color: var(--cyan);
+            flex-shrink: 0;
+        }
+
         .btn-submit {
             width: 100%;
             padding: 1.2rem;
@@ -643,11 +813,91 @@
             transition: all 0.3s;
             box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
             animation: gradientShift 8s ease-in-out infinite;
+            margin-top: 0.5rem;
         }
 
         .btn-submit:hover {
             transform: translateY(-2px);
             box-shadow: 0 0 40px rgba(168, 85, 247, 0.6);
+        }
+
+        .success-message {
+            display: none;
+            margin-top: 1.5rem;
+            padding: 1.2rem;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 12px;
+            color: #4ade80;
+            font-weight: 600;
+            font-size: 0.95rem;
+            animation: fadeInError 0.4s ease-out;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .quick-contact {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .quick-contact p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+        }
+
+        .social-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dim);
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-4px);
+        }
+
+        .social-telegram:hover {
+            color: #29b6f6;
+            border-color: #29b6f6;
+            background: rgba(41, 182, 246, 0.1);
+            box-shadow: 0 0 25px rgba(41, 182, 246, 0.35);
+        }
+
+        .social-whatsapp:hover {
+            color: #25d366;
+            border-color: #25d366;
+            background: rgba(37, 211, 102, 0.1);
+            box-shadow: 0 0 25px rgba(37, 211, 102, 0.35);
+        }
+
+        .social-email:hover {
+            color: var(--cyan);
+            border-color: var(--cyan);
+            background: rgba(34, 211, 238, 0.1);
+            box-shadow: 0 0 25px rgba(34, 211, 238, 0.35);
         }
 
         footer {
@@ -671,22 +921,10 @@
             .hero p { margin: 0 auto 2.5rem; }
             .cta-group { justify-content: center; }
             .hero-visual { height: 400px; order: -1; }
-
-            /* Земля меньше на мобильных */
-            .earth-system {
-                width: 150px;
-                height: 150px;
-                top: -25px;
-                right: 0;
-            }
+            .earth-system { width: 150px; height: 150px; top: -25px; right: 0; }
             .earth { width: 75px; height: 75px; }
-            .orbit-ring {
-                width: 135px;
-                height: 135px;
-                margin: -67.5px 0 0 -67.5px;
-            }
+            .orbit-ring { width: 135px; height: 135px; margin: -67.5px 0 0 -67.5px; }
             .orbit-ring::before { width: 11px; height: 11px; top: -6px; }
-
             .how-grid { grid-template-columns: 1fr; }
             nav ul { display: none; }
             .contact-card { padding: 3rem 1.5rem; }
@@ -695,9 +933,10 @@
 </head>
 <body>
 
+    <!-- ШАПКА (семантический тег <header> уже используется) -->
     <header>
         <a href="#home" class="logo gradient-animated">NEXUS</a>
-        <nav>
+        <nav aria-label="Основная навигация">
             <ul>
                 <li><a href="#home">Главная</a></li>
                 <li><a href="#features">Возможности</a></li>
@@ -706,174 +945,349 @@
         </nav>
     </header>
 
-    <section id="home">
-        <div class="hero-content">
-            <div class="hero-badge fade-in fade-in-delay-1">Новая версия 2.0 уже доступна</div>
-            <h1 class="fade-in fade-in-delay-2">
-                Будущее<br>
-                <span class="gradient-text">уже здесь</span>
-            </h1>
-            <p class="fade-in fade-in-delay-3">Nexus — это платформа нового поколения, которая объединяет искусственный интеллект, аналитику и автоматизацию в одном пространстве.</p>
-            <div class="cta-group fade-in fade-in-delay-4">
-                <a href="#contact" class="btn-primary">Попробовать бесплатно</a>
-                <a href="https://example.com/pay" target="_blank" class="btn-outline">Купить PRO</a>
-            </div>
-        </div>
+    <!-- ГЛАВНЫЙ КОНТЕНТ (новый семантический тег <main>) -->
+    <main>
 
-        <div class="hero-visual">
-            <div class="hero-image-container">
-                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=600&fit=crop&q=80" 
-                     alt="AI Technology" 
-                     class="hero-image"
-                     onerror="this.style.display='none'">
-                <div class="hero-overlay"></div>
-                <div class="hero-glass-card">
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">98%</div>
-                            <div class="stat-label">Точность AI</div>
+        <!-- Главный экран -->
+        <section id="home" aria-label="Главный экран">
+            <div class="hero-content">
+                <div class="hero-badge fade-in fade-in-delay-1">Новая версия 2.0 уже доступна</div>
+                <h1 class="fade-in fade-in-delay-2">
+                    Будущее<br>
+                    <span class="gradient-text">уже здесь</span>
+                </h1>
+                <p class="fade-in fade-in-delay-3">Nexus — это платформа нового поколения, которая объединяет искусственный интеллект, аналитику и автоматизацию в одном пространстве.</p>
+                <div class="cta-group fade-in fade-in-delay-4">
+                    <a href="#contact" class="btn-primary">Попробовать бесплатно</a>
+                    <a href="https://example.com/pay" target="_blank" rel="noopener noreferrer" class="btn-outline">Купить PRO</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <figure class="hero-image-container">
+                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=600&fit=crop&q=80" 
+                         alt="Платформа Nexus: визуализация искусственного интеллекта и потоков данных в реальном времени" 
+                         class="hero-image"
+                         onerror="this.style.display='none'">
+                    <div class="hero-overlay"></div>
+                    <figcaption class="hero-glass-card">
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">98%</div>
+                                <div class="stat-label">Точность AI</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">10мс</div>
+                                <div class="stat-label">Скорость</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">24/7</div>
+                                <div class="stat-label">Работа</div>
+                            </div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number">10мс</div>
-                            <div class="stat-label">Скорость</div>
+                    </figcaption>
+                </figure>
+
+                <div class="earth-system" aria-hidden="true">
+                    <div class="earth-glow"></div>
+                    <div class="orbit-ring"></div>
+                    <div class="earth"></div>
+                    <span class="star star-1"></span>
+                    <span class="star star-2"></span>
+                    <span class="star star-3"></span>
+                    <span class="star star-4"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Возможности -->
+        <section id="features" aria-labelledby="features-heading">
+            <div class="section-header">
+                <div class="section-tag">Возможности</div>
+                <h2 id="features-heading">Технологии, которые меняют правила игры</h2>
+            </div>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&q=80" 
+                         alt="Молниеносная обработка данных: интерактивные графики и дашборды аналитики" 
+                         class="feature-image"
+                         loading="lazy"
+                         onerror="this.style.display='none'">
+                    <div class="feature-content">
+                        <div class="feature-icon" aria-hidden="true">⚡</div>
+                        <h3>Молниеносная скорость</h3>
+                        <p>Обработка данных в реальном времени с задержкой менее 10мс. Никаких компромиссов.</p>
+                    </div>
+                </article>
+                <article class="feature-card">
+                    <img src="https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=600&h=400&fit=crop&q=80" 
+                         alt="AI-аналитика: нейросеть в виде светящегося мозга анализирует данные и предсказывает тренды" 
+                         class="feature-image"
+                         loading="lazy"
+                         onerror="this.style.display='none'">
+                    <div class="feature-content">
+                        <div class="feature-icon" aria-hidden="true">🧠</div>
+                        <h3>AI-аналитика</h3>
+                        <p>Нейросети предсказывают тренды и принимают решения за вас. Работает 24/7.</p>
+                    </div>
+                </article>
+                <article class="feature-card">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop&q=80" 
+                         alt="Кибербезопасность: защита данных цифровым щитом с шифрованием военного уровня" 
+                         class="feature-image"
+                         loading="lazy"
+                         onerror="this.style.display='none'">
+                    <div class="feature-content">
+                        <div class="feature-icon" aria-hidden="true">🔒</div>
+                        <h3>Кибер-защита</h3>
+                        <p>Шифрование военного уровня и нулевое знание. Ваши данные под надежным щитом.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Как это работает -->
+        <section class="how-it-works" aria-labelledby="how-heading">
+            <div class="how-container">
+                <div class="section-header">
+                    <div class="section-tag">Как это работает</div>
+                    <h2 id="how-heading">Три шага к будущему</h2>
+                </div>
+                <div class="how-grid">
+                    <article class="how-step">
+                        <div class="step-number" aria-hidden="true">1</div>
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop&q=80" 
+                             alt="Подключение источников данных к платформе через глобальную сеть" 
+                             class="how-image"
+                             loading="lazy"
+                             onerror="this.style.display='none'">
+                        <h3>Подключите данные</h3>
+                        <p>Интегрируйте Nexus с вашими источниками данных за считанные минуты</p>
+                    </article>
+                    <article class="how-step">
+                        <div class="step-number" aria-hidden="true">2</div>
+                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&h=400&fit=crop&q=80" 
+                             alt="AI-анализ данных: нейросеть находит скрытые паттерны в потоке информации" 
+                             class="how-image"
+                             loading="lazy"
+                             onerror="this.style.display='none'">
+                        <h3>AI анализирует</h3>
+                        <p>Нейросеть обрабатывает информацию и находит скрытые паттерны</p>
+                    </article>
+                    <article class="how-step">
+                        <div class="step-number" aria-hidden="true">3</div>
+                        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&h=400&fit=crop&q=80" 
+                             alt="Результаты аналитики: точные прогнозы и автоматические рекомендации на основе данных" 
+                             class="how-image"
+                             loading="lazy"
+                             onerror="this.style.display='none'">
+                        <h3>Получайте результат</h3>
+                        <p>Действуйте на основе точных прогнозов и автоматических рекомендаций</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Отзывы -->
+        <section class="testimonials" aria-labelledby="testimonials-heading">
+            <div class="section-header">
+                <div class="section-tag">Отзывы</div>
+                <h2 id="testimonials-heading">Нам доверяют</h2>
+            </div>
+            <div class="testimonials-grid">
+                <article class="testimonial-card">
+                    <div class="testimonial-quote" aria-hidden="true">"</div>
+                    <div class="rating-stars" aria-label="Оценка 5 из 5 звёзд">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="testimonial-text">«Nexus полностью изменил наш подход к аналитике. Раньше мы тратили часы на сбор данных вручную, теперь всё происходит автоматически. За первый месяц конверсия выросла на 34%.»</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar avatar-purple" aria-hidden="true">АП</div>
+                        <div class="author-info">
+                            <h4>Алексей Петров</h4>
+                            <p>Основатель TechFlow</p>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number">24/7</div>
-                            <div class="stat-label">Работа</div>
+                    </div>
+                </article>
+
+                <article class="testimonial-card">
+                    <div class="testimonial-quote" aria-hidden="true">"</div>
+                    <div class="rating-stars" aria-label="Оценка 5 из 5 звёзд">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="testimonial-text">«Подключили команду за один день — интерфейс интуитивно понятный даже для не-технических сотрудников. Поддержка отвечает молниеносно, всегда помогают. Рекомендую!»</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar avatar-blue" aria-hidden="true">МС</div>
+                        <div class="author-info">
+                            <h4>Мария Соколова</h4>
+                            <p>Директор по маркетингу, GrowthLab</p>
                         </div>
+                    </div>
+                </article>
+
+                <article class="testimonial-card">
+                    <div class="testimonial-quote" aria-hidden="true">"</div>
+                    <div class="rating-stars" aria-label="Оценка 5 из 5 звёзд">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="testimonial-text">«Как технический директор, я особенно ценю качество интеграции и безопасность. Шифрование данных на уровне банковских систем. За полгода — ни одного сбоя.»</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar avatar-cyan" aria-hidden="true">ДВ</div>
+                        <div class="author-info">
+                            <h4>Дмитрий Волков</h4>
+                            <p>CTO, DataBridge Solutions</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Форма заявки -->
+        <section id="contact" aria-labelledby="contact-heading">
+            <div class="contact-card fade-in">
+                <div class="section-tag">Быстрый старт</div>
+                <h2 id="contact-heading" class="gradient-animated">Получить демо-доступ</h2>
+                <p>Заполните форму, и мы откроем для вас бесплатный пробный период.</p>
+                
+                <form id="applicationForm" class="contact-form" novalidate aria-label="Форма для получения демо-доступа">
+                    <div class="form-group">
+                        <input type="text" id="userName" class="form-input" placeholder="Ваше имя" aria-label="Ваше имя" autocomplete="name">
+                        <div class="error-message" id="nameError"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="userContact" class="form-input" placeholder="Ваш Email или Telegram (@username)" aria-label="Ваш Email или Telegram" autocomplete="email">
+                        <div class="error-message" id="contactError"></div>
+                    </div>
+
+                    <div class="response-note">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <span>Мы ответим в течение 15 минут в рабочее время</span>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Получить демо-доступ</button>
+
+                    <div class="success-message" id="successMessage" role="status">
+                        ✨ Спасибо! Заявка отправлена. Мы свяжемся с вами в течение 15 минут.
+                    </div>
+                </form>
+
+                <div class="quick-contact">
+                    <p>Или напишите нам напрямую:</p>
+                    <div class="social-icons">
+                        <a href="https://t.me/nexus_support" target="_blank" rel="noopener noreferrer" class="social-icon social-telegram" title="Telegram" aria-label="Написать нам в Telegram">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/79990000000" target="_blank" rel="noopener noreferrer" class="social-icon social-whatsapp" title="WhatsApp" aria-label="Написать нам в WhatsApp">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                        </a>
+                        <a href="mailto:hello@nexus.tech" class="social-icon social-email" title="Email" aria-label="Написать нам на Email">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- 🌍 ЗЕМЛЯ СО СПУТНИКОМ -->
-            <div class="earth-system">
-                <div class="earth-glow"></div>
-                <div class="orbit-ring"></div>
-                <div class="earth"></div>
-                <span class="star star-1"></span>
-                <span class="star star-2"></span>
-                <span class="star star-3"></span>
-                <span class="star star-4"></span>
-            </div>
-        </div>
-    </section>
+    </main>
 
-    <section id="features">
-        <div class="section-header">
-            <div class="section-tag">Возможности</div>
-            <h2>Технологии, которые меняют правила игры</h2>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&q=80" 
-                     alt="Speed" 
-                     class="feature-image"
-                     onerror="this.style.display='none'">
-                <div class="feature-content">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Молниеносная скорость</h3>
-                    <p>Обработка данных в реальном времени с задержкой менее 10мс. Никаких компромиссов.</p>
-                </div>
-            </div>
-            <div class="feature-card">
-                <img src="https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=600&h=400&fit=crop&q=80" 
-                     alt="AI Analytics" 
-                     class="feature-image"
-                     onerror="this.style.display='none'">
-                <div class="feature-content">
-                    <div class="feature-icon">🧠</div>
-                    <h3>AI-аналитика</h3>
-                    <p>Нейросети предсказывают тренды и принимают решения за вас. Работает 24/7.</p>
-                </div>
-            </div>
-            <div class="feature-card">
-                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop&q=80" 
-                     alt="Cybersecurity" 
-                     class="feature-image"
-                     onerror="this.style.display='none'">
-                <div class="feature-content">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Кибер-защита</h3>
-                    <p>Шифрование военного уровня и нулевое знание. Ваши данные под надежным щитом.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="how-it-works">
-        <div class="how-container">
-            <div class="section-header">
-                <div class="section-tag">Как это работает</div>
-                <h2>Три шага к будущему</h2>
-            </div>
-            <div class="how-grid">
-                <div class="how-step">
-                    <div class="step-number">1</div>
-                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop&q=80" 
-                         alt="Connect" 
-                         class="how-image"
-                         onerror="this.style.display='none'">
-                    <h3>Подключите данные</h3>
-                    <p>Интегрируйте Nexus с вашими источниками данных за считанные минуты</p>
-                </div>
-                <div class="how-step">
-                    <div class="step-number">2</div>
-                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&h=400&fit=crop&q=80" 
-                         alt="Analyze" 
-                         class="how-image"
-                         onerror="this.style.display='none'">
-                    <h3>AI анализирует</h3>
-                    <p>Нейросеть обрабатывает информацию и находит скрытые паттерны</p>
-                </div>
-                <div class="how-step">
-                    <div class="step-number">3</div>
-                    <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&h=400&fit=crop&q=80" 
-                         alt="Results" 
-                         class="how-image"
-                         onerror="this.style.display='none'">
-                    <h3>Получайте результат</h3>
-                    <p>Действуйте на основе точных прогнозов и автоматических рекомендаций</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="contact-card fade-in">
-            <div class="section-tag">Свяжитесь с нами</div>
-            <h2 class="gradient-animated">Оставить заявку</h2>
-            <p>Заполните форму, и наш менеджер свяжется с вами для настройки демо-доступа.</p>
-            
-            <form id="applicationForm" class="contact-form">
-                <div class="form-group">
-                    <input type="text" id="userName" class="form-input" placeholder="Ваше имя" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" id="userContact" class="form-input" placeholder="Ваш Email или Telegram" required>
-                </div>
-                <button type="submit" class="btn-submit">Отправить заявку</button>
-            </form>
-        </div>
-    </section>
-
+    <!-- ПОДВАЛ (семантический тег <footer> уже используется) -->
     <footer>
         <p>© 2026 Nexus Technologies. Создано для будущего.</p>
     </footer>
 
     <script>
         const form = document.getElementById('applicationForm');
+        const nameInput = document.getElementById('userName');
+        const contactInput = document.getElementById('userContact');
+        const successMessage = document.getElementById('successMessage');
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+        const telegramRegex = /^@[a-zA-Z0-9_]{5,32}$/;
+
+        function showError(input, errorId, message) {
+            input.classList.add('error');
+            const errorEl = document.getElementById(errorId);
+            errorEl.textContent = message;
+            input.parentElement.classList.add('show-error');
+        }
+
+        function hideError(input, errorId) {
+            input.classList.remove('error');
+            input.parentElement.classList.remove('show-error');
+        }
+
+        nameInput.addEventListener('input', () => hideError(nameInput, 'nameError'));
+        contactInput.addEventListener('input', () => hideError(contactInput, 'contactError'));
 
         form.addEventListener('submit', function(event) {
             event.preventDefault();
+            let isValid = true;
 
-            const name = document.getElementById('userName').value.trim();
-            const contact = document.getElementById('userContact').value.trim();
+            successMessage.classList.remove('show');
 
-            if (name === '' || contact === '') {
-                alert('Пожалуйста, заполните все поля!');
+            const name = nameInput.value.trim();
+            if (name === '') {
+                showError(nameInput, 'nameError', 'Пожалуйста, введите ваше имя');
+                isValid = false;
+            } else if (name.length < 2) {
+                showError(nameInput, 'nameError', 'Имя должно содержать минимум 2 символа');
+                isValid = false;
             } else {
-                alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами.');
+                hideError(nameInput, 'nameError');
+            }
+
+            const contact = contactInput.value.trim();
+
+            if (contact === '') {
+                showError(contactInput, 'contactError', 'Пожалуйста, укажите контакт для связи');
+                isValid = false;
+            } else if (contact.startsWith('@')) {
+                if (!telegramRegex.test(contact)) {
+                    showError(contactInput, 'contactError', 'Telegram должен начинаться с @ и содержать минимум 5 символов (например, @nexus_user)');
+                    isValid = false;
+                } else {
+                    hideError(contactInput, 'contactError');
+                }
+            } else if (contact.includes('@')) {
+                if (!emailRegex.test(contact)) {
+                    showError(contactInput, 'contactError', 'Введите корректный email (например, name@mail.com)');
+                    isValid = false;
+                } else {
+                    hideError(contactInput, 'contactError');
+                }
+            } else {
+                showError(contactInput, 'contactError', 'Введите email (name@mail.com) или Telegram (@username)');
+                isValid = false;
+            }
+
+            if (isValid) {
+                successMessage.classList.add('show');
                 form.reset();
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 6000);
             }
         });
     </script>
