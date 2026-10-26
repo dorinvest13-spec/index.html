@@ -11,7 +11,7 @@
     <meta name="robots" content="index, follow">
 
     <meta property="og:title" content="Nexus — AI-платформа для аналитики и автоматизации">
-    <meta property="og:description" content="AI-платформа нового поколения. 500+ клиентов, 99.9% uptime. Демо-доступ бесплатно.">
+    <meta property="og:description" content="AI-платформа нового поколения. 500+ клиентов, 99.9% uptime. Демо-доступ бесплатно за 15 минут.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&h=630&fit=crop&q=80">
     <meta property="og:url" content="https://nexus.tech">
@@ -103,6 +103,7 @@
             animation: gradientShift 8s ease-in-out infinite;
         }
 
+        /* ЗЕМЛЯ СО СПУТНИКОМ */
         .earth-system {
             position: absolute;
             top: -40px;
@@ -194,6 +195,7 @@
             50% { opacity: 1; transform: scale(1.4); }
         }
 
+        /* HEADER */
         header {
             position: fixed;
             top: 0; left: 0; right: 0;
@@ -265,6 +267,7 @@
         .burger-btn.active span:nth-child(2) { opacity: 0; }
         .burger-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
 
+        /* HERO */
         #home {
             position: relative;
             z-index: 5;
@@ -451,6 +454,7 @@
             to { opacity: 1; }
         }
 
+        /* ===== БЛОК СТАТИСТИКИ ===== */
         .stats-bar {
             position: relative;
             z-index: 5;
@@ -485,6 +489,7 @@
             font-weight: 500;
         }
 
+        /* FEATURES */
         #features {
             position: relative;
             z-index: 5;
@@ -603,6 +608,7 @@
             font-weight: 400;
         }
 
+        /* HOW IT WORKS */
         .how-it-works {
             position: relative;
             z-index: 5;
@@ -663,6 +669,7 @@
             font-size: 0.95rem;
         }
 
+        /* ===== БЛОК ТАРИФОВ ===== */
         #pricing {
             position: relative;
             z-index: 5;
@@ -840,6 +847,7 @@
             box-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
         }
 
+        /* ===== ЛОГОТИПЫ КЛИЕНТОВ ===== */
         .logos-bar {
             position: relative;
             z-index: 5;
@@ -888,6 +896,7 @@
             height: 32px;
         }
 
+        /* TESTIMONIALS */
         .testimonials {
             position: relative;
             z-index: 5;
@@ -1004,6 +1013,7 @@
             color: var(--text-dim);
         }
 
+        /* INLINE FAQ */
         .inline-faq {
             position: relative;
             z-index: 5;
@@ -1032,6 +1042,7 @@
             background: rgba(10, 10, 15, 0.7);
         }
 
+        /* FAQ */
         .faq-list {
             display: flex;
             flex-direction: column;
@@ -1117,6 +1128,7 @@
             margin: 0 auto;
         }
 
+        /* CONTACT */
         #contact {
             position: relative;
             z-index: 5;
@@ -1396,6 +1408,7 @@
             box-shadow: 0 0 25px rgba(34, 211, 238, 0.35);
         }
 
+        /* РАСШИРЕННЫЙ ФУТЕР */
         .footer-extended {
             position: relative;
             z-index: 5;
@@ -1502,6 +1515,7 @@
 
         .footer-legal a:hover { color: var(--cyan); }
 
+        /* ЧАТ-ВИДЖЕТ */
         .chat-widget {
             position: fixed;
             bottom: 25px;
@@ -1537,6 +1551,7 @@
             50% { box-shadow: 0 8px 35px rgba(34, 211, 238, 0.6); }
         }
 
+        /* EXIT-INTENT ПОПАП */
         .exit-popup-overlay {
             position: fixed;
             inset: 0;
@@ -1664,6 +1679,7 @@
 
         .exit-popup-skip:hover { color: var(--text); }
 
+        /* МОБИЛЬНАЯ ВЕРСИЯ */
         @media (max-width: 900px) {
             .burger-btn { display: flex; }
 
@@ -1715,7 +1731,7 @@
             .footer-grid { grid-template-columns: 1fr; }
         }
 
-        /* ===== МОБИЛЬНАЯ ОПТИМИЗАЦИЯ ФОРМЫ ===== */
+        /* МОБИЛЬНАЯ ОПТИМИЗАЦИЯ ФОРМЫ */
         @media (max-width: 768px) {
             .contact-form .form-input,
             .contact-form .btn-submit {
@@ -1763,6 +1779,7 @@
 
     <main>
 
+        <!-- HERO -->
         <section id="home" aria-label="Главный экран">
             <div class="hero-content">
                 <div class="hero-badge fade-in fade-in-delay-1">Новая версия 2.0 уже доступна</div>
@@ -1820,6 +1837,7 @@
             </div>
         </section>
 
+        <!-- БЛОК СТАТИСТИКИ -->
         <section class="stats-bar" aria-label="Статистика компании">
             <div class="stats-bar-grid">
                 <div class="stats-bar-item">
@@ -1841,6 +1859,7 @@
             </div>
         </section>
 
+        <!-- ВОЗМОЖНОСТИ -->
         <section id="features" aria-labelledby="features-heading">
             <div class="section-header">
                 <div class="section-tag">Возможности</div>
@@ -1893,6 +1912,7 @@
             </div>
         </section>
 
+        <!-- КАК ЭТО РАБОТАЕТ -->
         <section class="how-it-works" aria-labelledby="how-heading">
             <div class="how-container">
                 <div class="section-header">
@@ -1941,6 +1961,7 @@
             </div>
         </section>
 
+        <!-- ТАРИФЫ -->
         <section id="pricing" aria-labelledby="pricing-heading">
             <div class="pricing-header">
                 <div class="pricing-badge-top">
@@ -2002,6 +2023,7 @@
             </div>
         </section>
 
+        <!-- ЛОГОТИПЫ КЛИЕНТОВ -->
         <section class="logos-bar" aria-label="Нам доверяют компании">
             <p>Нам доверяют лидеры рынка</p>
             <div class="logos-grid">
@@ -2042,6 +2064,7 @@
             </div>
         </section>
 
+        <!-- ОТЗЫВЫ -->
         <section class="testimonials" aria-labelledby="testimonials-heading">
             <div class="section-header">
                 <div class="section-tag">Отзывы</div>
@@ -2107,6 +2130,7 @@
             </div>
         </section>
 
+        <!-- FAQ перед формой -->
         <section class="inline-faq" aria-label="Частые вопросы перед заявкой">
             <div class="inline-faq-header">
                 <h3>Остались вопросы перед заявкой?</h3>
@@ -2135,6 +2159,7 @@
             </div>
         </section>
 
+        <!-- ФОРМА ЗАЯВКИ -->
         <section id="contact" aria-labelledby="contact-heading">
             <div class="contact-card fade-in">
                 <div class="section-tag">Быстрый старт</div>
@@ -2187,7 +2212,7 @@
                 <div class="quick-contact">
                     <p>Или напишите нам напрямую:</p>
                     <div class="contact-buttons">
-                        <a href="https://t.me/ваш_никнейм" target="_blank" rel="noopener noreferrer" class="contact-btn telegram">
+                        <a href="https://t.me/nexus_support" target="_blank" rel="noopener noreferrer" class="contact-btn telegram">
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
                             </svg>
@@ -2211,6 +2236,7 @@
             </div>
         </section>
 
+        <!-- ПОЛНЫЙ FAQ -->
         <section id="faq" aria-labelledby="faq-heading">
             <div class="section-header" style="text-align: center; max-width: 100%; margin: 0 auto 2rem;">
                 <div class="section-tag">FAQ</div>
@@ -2271,6 +2297,7 @@
 
     </main>
 
+    <!-- РАСШИРЕННЫЙ ФУТЕР -->
     <footer class="footer-extended">
         <div class="footer-container">
             <div class="footer-grid">
@@ -2332,6 +2359,7 @@
         </div>
     </footer>
 
+    <!-- ЧАТ-ВИДЖЕТ -->
     <button class="chat-widget" id="chatWidget" aria-label="Открыть чат поддержки">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
@@ -2340,6 +2368,7 @@
         </svg>
     </button>
 
+    <!-- EXIT-INTENT ПОПАП -->
     <div class="exit-popup-overlay" id="exitPopup">
         <div class="exit-popup">
             <button class="exit-popup-close" id="exitPopupClose" aria-label="Закрыть">✕</button>
@@ -2354,6 +2383,7 @@
     </div>
 
     <script>
+        // БУРГЕР-МЕНЮ
         const burgerBtn = document.getElementById('burgerBtn');
         const navMenu = document.getElementById('navMenu');
 
@@ -2373,6 +2403,7 @@
             }
         });
 
+        // FAQ АККОРДЕОН
         document.querySelectorAll('.faq-question').forEach(btn => {
             btn.addEventListener('click', () => {
                 const item = btn.parentElement;
@@ -2387,6 +2418,7 @@
             });
         });
 
+        // ФОРМА ЗАЯВКИ
         const form = document.getElementById('applicationForm');
         const nameInput = document.getElementById('userName');
         const contactInput = document.getElementById('userContact');
@@ -2470,10 +2502,12 @@
             }
         });
 
+        // ЧАТ-ВИДЖЕТ
         document.getElementById('chatWidget').addEventListener('click', () => {
             document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         });
 
+        // EXIT-INTENT ПОПАП
         const exitPopup = document.getElementById('exitPopup');
         const exitPopupClose = document.getElementById('exitPopupClose');
         const exitSubmit = document.getElementById('exitSubmit');
