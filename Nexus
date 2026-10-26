@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus — Будущее уже здесь</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-darker: #05050a;
+            --purple: #a855f7;
+            --blue: #3b82f6;
+            --cyan: #22d3ee;
+            --text: #e5e7eb;
+            --text-dim: #9ca3af;
+            --glass-bg: rgba(255, 255, 255, 0.04);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        body::before, body::after {
+            content: '';
+            position: fixed;
+            width: 60%;
+            height: 80%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        body::before {
+            top: -50%; left: -20%;
+            background: radial-gradient(circle, rgba(168,85,247,.15) 0%, transparent 70%);
+        }
+        body::after {
+            bottom: -30%; right: -20%;
+            background: radial-gradient(circle, rgba(34,211,238,.12) 0%, transparent 70%);
+        }
+
+        /* ===== АНИМАЦИИ ===== */
+        @keyframes gradientShift {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ОДИН КЛАСС ДЛЯ ВСЕХ ГРАДИЕНТОВ */
+        .gradient-animated {
+            background-size: 200% auto !important;
+            animation: gradientShift 6s linear infinite;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        .fade-in-delay-1 { animation-delay: .2s; }
+        .fade-in-delay-2 { animation-delay: .4s; }
+        .fade-in-delay-3 { animation-delay: .6s; }
+        .fade-in-delay-4 { animation-delay: .8s; }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn { to { opacity: 1; } }
+        @keyframes float {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes pulse {
+            0%,100% { opacity: 1; }
+            50% { opacity: .4; }
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: relative;
+            z-index: 10;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            background: rgba(10,10,15,.6);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg,
+                var(--purple), var(--cyan), var(--blue), var(--cyan), var(--purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        nav ul { display: flex; gap: 2.5rem; list-style: none; }
+        nav a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: .95rem;
+            font-weight: 500;
+            transition: color .3s;
+            position: relative;
+        }
+        nav a:hover { color: var(--cyan); }
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px; left: 0;
+            width: 0; height: 2px;
+            background: linear-gradient(90deg, var(--purple), var(--cyan));
+            transition: width .3s;
+        }
+        nav a:hover::after { width: 100%; }
+
+        /* ===== КНОПКИ: ГРАДИЕНТ ТЕЧЁТ ===== */
+        .btn-primary {
+            padding: 1rem 2.2rem;
+            background: linear-gradient(90deg,
+                var(--purple), var(--blue), var(--cyan), var(--blue), var(--purple));
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: box-shadow .3s, transform .3s;
+            box-shadow: 0 0 30px rgba(168,85,247,.4);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 50px rgba(34,211,238,.55);
+        }
+
+        .btn-secondary {
+            padding: 1rem 2.2rem;
+            color: var(--text);
+            background: linear-gradient(90deg,
+                rgba(168,85,247,.18), rgba(34,211,238,.18), rgba(168,85,247,.18));
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: border-color .3s, color .3s;
+        }
+        .btn-secondary:hover {
+            border-color: var(--cyan);
+            color: var(--cyan);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            z-index: 5;
+            min-height: 90vh;
+            padding: 6rem 5%;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-content { position: relative; z-index: 2; }
+
+        .hero-badge {
+            display: inline-block;
+            padding: .5rem 1.2rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            font-size: .85rem;
+            color: var(--cyan);
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        .hero-badge::before {
+            content: '●';
+            color: var(--cyan);
+            margin-right: .5rem;
+            animation: pulse 2s infinite;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 .gradient-text {
+            background: linear-gradient(90deg,
+                var(--purple), var(--blue), var(--cyan), var(--blue), var(--purple), var(--cyan));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-dim);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+        }
+        .cta-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        /* Картинка + резервный градиент */
+        .hero-visual {
+            position: relative;
+            height: 520px;
+            animation: fadeIn 1.5s ease-out;
+        }
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #2a1245, #10233f, #06333a);
+            box-shadow: 0 30px 60px rgba(0,0,0,.5);
+        }
+        .hero-image {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            filter: brightness(.75) saturate(1.2);
+        }
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg,
+                rgba(168,85,247,.35), rgba(34,211,238,.25), rgba(168,85,247,.35));
+            mix-blend-mode: screen;
+        }
+        .hero-glass-card {
+            position: absolute;
+            bottom: 25px; left: 25px; right: 25px;
+            padding: 1.5rem;
+            background: rgba(10,10,15,.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+        }
+        .hero-stats { display: flex; gap: 2rem; flex-wrap: wrap; }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(90deg,
+                var(--purple), var(--cyan), var(--blue), var(--cyan), var(--purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+        .stat-label { font-size: .85rem; color: var(--text-dim); }
+
+        /* Сфера как декоративное свечение */
+        .sphere {
+            position: absolute;
+            width: 300px; height: 300px;
+            top: -80px; right: -60px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%,
+                rgba(168,85,247,.55), rgba(34,211,238,.25) 55%, transparent 75%);
+            filter: blur(45px);
+            animation: float 6s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        /* ===== ПРЕИМУЩЕСТВА ===== */
+        .features {
+            position: relative; z-index: 5;
+            padding: 8rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .section-header { text-align: left; margin-bottom: 4rem; max-width: 700px; }
+
+        .section-tag {
+            display: inline-block;
+            font-size: .9rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--cyan), var(--purple), var(--cyan));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        .feature-card {
+            position: relative;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            overflow: hidden;
+            transition: transform .4s, box-shadow .4s, border-color .4s;
+        }
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--purple), var(--cyan), transparent);
+            opacity: 0;
+            transition: opacity .4s;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(168,85,247,.3);
+            box-shadow: 0 20px 40px rgba(168,85,247,.15);
+        }
+        .feature-card:hover::before { opacity: 1; }
+
+        /* Обёртка фото: градиент виден, пока/если картинка не загрузилась */
+        .feature-media {
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #3b1d5e, #163052, #0b3b42);
+        }
+        .feature-media img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            filter: brightness(.65) saturate(1.15);
+            transition: transform .5s;
+        }
+        .feature-card:hover .feature-media img { transform: scale(1.07); }
+
+        .feature-content { padding: 2rem; }
+        .feature-icon {
+            width: 50px; height: 50px;
+            border-radius: 12px;
+            background: linear-gradient(90deg,
+                rgba(168,85,247,.35), rgba(34,211,238,.35), rgba(168,85,247,.35));
+            border: 1px solid var(--glass-border);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .feature-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: .8rem; }
+        .feature-card p { color: var(--text-dim); font-size: .95rem; }
+
+        /* ===== КАК ЭТО РАБОТАЕТ ===== */
+        .how-it-works {
+            position: relative; z-index: 5;
+            padding: 8rem 5%;
+            background: linear-gradient(180deg, transparent, rgba(168,85,247,.05), transparent);
+        }
+        .how-container { max-width: 1400px; margin: 0 auto; }
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        .how-step { position: relative; text-align: center; }
+        .how-media {
+            position: relative;
+            height: 280px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #2a1245, #0d2b45, #06333a);
+            box-shadow: 0 15px 35px rgba(0,0,0,.4);
+        }
+        .how-media img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            filter: brightness(.7);
+            transition: transform .4s;
+        }
+        .how-step:hover .how-media img { transform: scale(1.06); }
+
+        .step-number {
+            position: absolute;
+            top: 15px; left: 15px;
+            width: 50px; height: 50px;
+            background: linear-gradient(90deg, var(--purple), var(--cyan), var(--blue), var(--purple));
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.3rem;
+            color: #fff;
+            box-shadow: 0 10px 25px rgba(168,85,247,.4);
+            z-index: 2;
+        }
+        .how-step h3 { font-size: 1.3rem; margin-bottom: .8rem; font-weight: 700; }
+        .how-step p { color: var(--text-dim); font-size: .95rem; }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            position: relative; z-index: 5;
+            padding: 8rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .cta-container {
+            position: relative;
+            background: linear-gradient(135deg, #2a1245, #0d2b45);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+        }
+        .cta-image {
+            position: absolute; inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            filter: brightness(.55);
+        }
+        .cta-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(90deg,
+                rgba(168,85,247,.75), rgba(59,130,246,.65), rgba(34,211,238,.6), rgba(168,85,247,.75));
+        }
+        .cta-content {
+            position: relative; z-index: 2;
+            padding: 4rem;
+        }
+        .cta-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        .cta-content p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,.9);
+            margin-bottom: 2.5rem;
+            max-width: 450px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            position: relative; z-index: 5;
+            padding: 3rem 5%;
+            border-top: 1px solid var(--glass-border);
+            text-align: center;
+            color: var(--text-dim);
+            font-size: .9rem;
+            background: rgba(5,5,10,.5);
+            backdrop-filter: blur(20px);
+        }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 3rem 5%;
+                min-height: auto;
+                gap: 2rem;
+            }
+            .hero-visual { height: 380px; order: -1; }
+            nav ul { display: none; }
+            .features-grid, .how-grid { grid-template-columns: 1fr; }
+            .cta-content { padding: 3rem 2rem; }
+            .sphere { right: -100px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo gradient-animated">NEXUS</div>
+        <nav>
+            <ul>
+                <li><a href="#">Продукт</a></li>
+                <li><a href="#">Возможности</a></li>
+                <li><a href="#">Цены</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge fade-in fade-in-delay-1">Новая версия 2.0 уже доступна</div>
+            <h1 class="fade-in fade-in-delay-2">
+                Будущее<br>
+                <span class="gradient-text gradient-animated">уже здесь</span>
+            </h1>
+            <p class="fade-in fade-in-delay-3">
+                Nexus — платформа нового поколения, которая объединяет искусственный
+                интеллект, аналитику и автоматизацию в одном пространстве.
+            </p>
+            <div class="cta-group fade-in fade-in-delay-4">
+                <button class="btn-primary gradient-animated">Попробовать бесплатно</button>
+                <button class="btn-secondary gradient-animated">Смотреть демо →</button>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="sphere"></div>
+            <div class="hero-image-container">
+                <img class="hero-image"
+                     src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=80"
+                     alt="Микросхема — технологии Nexus"
+                     referrerpolicy="no-referrer"
+                     onerror="this.style.display='none'">
+                <div class="hero-overlay gradient-animated"></div>
+
+                <div class="hero-glass-card">
+                    <div class="hero-stats">
+                        <div>
+                            <div class="stat-number gradient-animated">98%</div>
+                            <div class="stat-label">Точность AI</div>
+                        </div>
+                        <div>
+                            <div class="stat-number gradient-animated">10мс</div>
+                            <div class="stat-label">Скорость</div>
+                        </div>
+                        <div>
+                            <div class="stat-number gradient-animated">24/7</div>
+                            <div class="stat-label">Работа</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПРЕИМУЩЕСТВА -->
+    <section class="features">
+        <div class="section-header">
+            <div class="section-tag gradient-animated">Возможности</div>
+            <h2>Технологии, которые меняют правила игры</h2>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-media">
+                    <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=700&q=80"
+                         alt="Работа на ноутбуке — скорость"
+                         loading="lazy" referrerpolicy="no-referrer"
+                         onerror="this.style.display='none'">
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon gradient-animated">⚡</div>
+                    <h3>Молниеносная скорость</h3>
+                    <p>Обработка данных в реальном времени с задержкой менее 10 мс. Никаких компромиссов.</p>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-media">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=700&q=80"
+                         alt="Робот — искусственный интеллект"
+                         loading="lazy" referrerpolicy="no-referrer"
+                         onerror="this.style.display='none'">
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon gradient-animated">🧠</div>
+                    <h3>AI-аналитика</h3>
+                    <p>Нейросети предсказывают тренды и находят скрытые закономерности. Работают 24/7.</p>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-media">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=700&q=80"
+                         alt="Защита данных — кибербезопасность"
+                         loading="lazy" referrerpolicy="no-referrer"
+                         onerror="this.style.display='none'">
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon gradient-animated">🔒</div>
+                    <h3>Кибер-защита</h3>
+                    <p>Шифрование военного уровня и модель нулевого доверия. Ваши данные под надёжным щитом.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- КАК ЭТО РАБОТАЕТ -->
+    <section class="how-it-works">
+        <div class="how-container">
+            <div class="section-header">
+                <div class="section-tag gradient-animated">Как это работает</div>
+                <h2>Три шага к будущему</h2>
+            </div>
+
+            <div class="how-grid">
+                <div class="how-step">
+                    <div class="how-media">
+                        <div class="step-number gradient-animated">1</div>
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=700&q=80"
+                             alt="Глобальная сеть — подключение данных"
+                             loading="lazy" referrerpolicy="no-referrer"
+                             onerror="this.style.display='none'">
+                    </div>
+                    <h3>Подключите данные</h3>
+                    <p>Интегрируйте Nexus с вашими источниками данных за считанные минуты.</p>
+                </div>
+
+                <div class="how-step">
+                    <div class="how-media">
+                        <div class="step-number gradient-animated">2</div>
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=700&q=80"
+                             alt="Серверная — обработка информации"
+                             loading="lazy" referrerpolicy="no-referrer"
+                             onerror="this.style.display='none'">
+                    </div>
+                    <h3>AI анализирует</h3>
+                    <p>Нейросеть обрабатывает информацию и находит скрытые паттерны.</p>
+                </div>
+
+                <div class="how-step">
+                    <div class="how-media">
+                        <div class="step-number gradient-animated">3</div>
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=700&q=80"
+                             alt="Дашборд — готовые результаты"
+                             loading="lazy" referrerpolicy="no-referrer"
+                             onerror="this.style.display='none'">
+                    </div>
+                    <h3>Получайте результат</h3>
+                    <p>Действуйте на основе точных прогнозов и автоматических рекомендаций.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <img class="cta-image"
+                 src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80"
+                 alt="Команда за работой с технологиями"
+                 loading="lazy" referrerpolicy="no-referrer"
+                 onerror="this.style.display='none'">
+            <div class="cta-overlay gradient-animated"></div>
+            <div class="cta-content">
+                <h2>Готовы начать?</h2>
+                <p>Присоединяйтесь к тысячам компаний, которые уже используют Nexus
+                   для трансформации своего бизнеса.</p>
+                <button class="btn-primary gradient-animated">Начать бесплатно →</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Nexus Technologies. Создано для будущего.</p>
+        <p style="margin-top:.5rem;opacity:.6;">Фото: Unsplash · Бесплатно для коммерческого использования</p>
+    </footer>
+
+</body>
+</html>
