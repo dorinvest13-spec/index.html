@@ -65,9 +65,10 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* ===== МЯГКАЯ АНИМАЦИЯ ГРАДИЕНТОВ ===== */
         @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
@@ -77,9 +78,117 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: gradientShift 4s linear infinite;
+            animation: gradientShift 8s ease-in-out infinite;
         }
 
+        /* ===== ЗЕМЛЯ СО СПУТНИКОМ ===== */
+        .earth-system {
+            position: absolute;
+            top: -40px;
+            right: -10px;
+            width: 230px;
+            height: 230px;
+            z-index: 10;
+            animation: float 7s ease-in-out infinite;
+        }
+
+        /* Атмосферное свечение вокруг планеты */
+        .earth-glow {
+            position: absolute;
+            inset: 22%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.45) 0%, rgba(34, 211, 238, 0.25) 50%, transparent 72%);
+            filter: blur(25px);
+            animation: glowPulse 5s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.08); }
+        }
+
+        /* Сама планета Земля */
+        .earth {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 115px;
+            height: 115px;
+            border-radius: 50%;
+            background:
+                /* Блик солнца */
+                radial-gradient(circle at 28% 25%, rgba(255,255,255,0.4) 0%, transparent 22%),
+                /* Континенты */
+                radial-gradient(ellipse 30px 22px at 38% 32%, rgba(74, 222, 128, 0.6) 0%, transparent 70%),
+                radial-gradient(ellipse 24px 30px at 64% 58%, rgba(34, 197, 94, 0.55) 0%, transparent 70%),
+                radial-gradient(ellipse 18px 14px at 30% 70%, rgba(74, 222, 128, 0.5) 0%, transparent 70%),
+                radial-gradient(ellipse 14px 11px at 72% 28%, rgba(34, 197, 94, 0.45) 0%, transparent 70%),
+                /* Океан с градиентом для объёма */
+                radial-gradient(circle at 32% 30%, #4a9eff 0%, #2563eb 40%, #1e40af 70%, #0c2d6b 100%);
+            box-shadow:
+                inset -22px -22px 45px rgba(0, 0, 0, 0.65),
+                inset 6px 6px 22px rgba(255, 255, 255, 0.12),
+                0 0 45px rgba(59, 130, 246, 0.55),
+                0 0 90px rgba(34, 211, 238, 0.28);
+        }
+
+        /* Орбитальное кольцо со спутником (3D наклон) */
+        .orbit-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 210px;
+            height: 210px;
+            margin: -105px 0 0 -105px;
+            border: 1px solid rgba(34, 211, 238, 0.3);
+            border-radius: 50%;
+            transform: rotateX(68deg) rotateZ(0deg);
+            animation: orbitSpin 8s linear infinite;
+        }
+
+        /* Спутник на орбите */
+        .orbit-ring::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #ffffff 0%, #a5f3fc 40%, #22d3ee 100%);
+            box-shadow:
+                0 0 15px rgba(34, 211, 238, 0.95),
+                0 0 35px rgba(34, 211, 238, 0.55),
+                0 0 55px rgba(168, 85, 247, 0.3);
+        }
+
+        @keyframes orbitSpin {
+            from { transform: rotateX(68deg) rotateZ(0deg); }
+            to { transform: rotateX(68deg) rotateZ(360deg); }
+        }
+
+        /* Звёздочки вокруг */
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 3.5s ease-in-out infinite;
+        }
+        .star-1 { top: 8%; left: 4%; animation-delay: 0s; }
+        .star-2 { top: 72%; left: -2%; animation-delay: 1.2s; }
+        .star-3 { top: 18%; right: 2%; animation-delay: 2.4s; }
+        .star-4 { bottom: 8%; right: 22%; animation-delay: 0.6s; }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.4); }
+        }
+
+        /* Header */
         header {
             position: fixed;
             top: 0; left: 0; right: 0;
@@ -177,7 +286,7 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             display: inline-block;
-            animation: gradientShift 5s linear infinite;
+            animation: gradientShift 10s ease-in-out infinite;
         }
 
         .hero p {
@@ -205,7 +314,7 @@
             cursor: pointer;
             transition: all 0.3s;
             box-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
-            animation: gradientShift 4s linear infinite;
+            animation: gradientShift 8s ease-in-out infinite;
             text-decoration: none;
             display: inline-block;
             text-align: center;
@@ -292,31 +401,12 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: gradientShift 4s linear infinite;
+            animation: gradientShift 8s ease-in-out infinite;
         }
 
         .stat-label {
             font-size: 0.85rem;
             color: var(--text-dim);
-        }
-
-        .sphere {
-            position: absolute;
-            width: 150px; height: 150px;
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-            opacity: 0.7;
-            z-index: -1;
-            top: 10%; right: -5%;
-        }
-
-        .sphere::before {
-            content: '';
-            position: absolute;
-            inset: -50%;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(168, 85, 247, 0.5) 0%, rgba(34, 211, 238, 0.3) 40%, transparent 70%);
-            filter: blur(40px);
         }
 
         @keyframes float {
@@ -466,7 +556,7 @@
             font-size: 1.3rem;
             color: white;
             box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4);
-            animation: gradientShift 4s linear infinite;
+            animation: gradientShift 8s ease-in-out infinite;
         }
 
         .how-step h3 {
@@ -552,7 +642,7 @@
             cursor: pointer;
             transition: all 0.3s;
             box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
-            animation: gradientShift 4s linear infinite;
+            animation: gradientShift 8s ease-in-out infinite;
         }
 
         .btn-submit:hover {
@@ -581,7 +671,22 @@
             .hero p { margin: 0 auto 2.5rem; }
             .cta-group { justify-content: center; }
             .hero-visual { height: 400px; order: -1; }
-            .sphere { width: 100px; height: 100px; }
+
+            /* Земля меньше на мобильных */
+            .earth-system {
+                width: 150px;
+                height: 150px;
+                top: -25px;
+                right: 0;
+            }
+            .earth { width: 75px; height: 75px; }
+            .orbit-ring {
+                width: 135px;
+                height: 135px;
+                margin: -67.5px 0 0 -67.5px;
+            }
+            .orbit-ring::before { width: 11px; height: 11px; top: -6px; }
+
             .how-grid { grid-template-columns: 1fr; }
             nav ul { display: none; }
             .contact-card { padding: 3rem 1.5rem; }
@@ -639,7 +744,17 @@
                     </div>
                 </div>
             </div>
-            <div class="sphere"></div>
+
+            <!-- 🌍 ЗЕМЛЯ СО СПУТНИКОМ -->
+            <div class="earth-system">
+                <div class="earth-glow"></div>
+                <div class="orbit-ring"></div>
+                <div class="earth"></div>
+                <span class="star star-1"></span>
+                <span class="star star-2"></span>
+                <span class="star star-3"></span>
+                <span class="star star-4"></span>
+            </div>
         </div>
     </section>
 
