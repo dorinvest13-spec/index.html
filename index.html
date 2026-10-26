@@ -16,11 +16,19 @@
     <meta property="og:description" content="Платформа, которая объединяет искусственный интеллект, аналитику и автоматизацию. Получите демо-доступ бесплатно.">
     <meta property="og:type" content="website">
 
+    <!-- ===== FAVICON (SVG data URI — всё в одном файле) ===== -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23a855f7'/><stop offset='100%25' stop-color='%2322d3ee'/></linearGradient></defs><circle cx='50' cy='50' r='45' fill='url(%23g)'/><text x='50' y='68' font-family='Arial' font-size='50' font-weight='bold' fill='white' text-anchor='middle'>N</text></svg>">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <style>
-        html { scroll-behavior: smooth; }
+        /* ===== ИСПРАВЛЕНИЕ #1: ПРЫЖКИ ЯКОРЕЙ ===== */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px; /* Отступ при прокрутке к якорям */
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
@@ -186,6 +194,7 @@
             50% { opacity: 1; transform: scale(1.4); }
         }
 
+        /* ===== ШАПКА С БУРГЕР-МЕНЮ ===== */
         header {
             position: fixed;
             top: 0; left: 0; right: 0;
@@ -195,7 +204,7 @@
             justify-content: space-between;
             align-items: center;
             backdrop-filter: blur(20px);
-            background: rgba(10, 10, 15, 0.8);
+            background: rgba(10, 10, 15, 0.85);
             border-bottom: 1px solid var(--glass-border);
         }
 
@@ -234,6 +243,37 @@
 
         nav a:hover::after { width: 100%; }
 
+        /* Бургер-кнопка */
+        .burger-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 101;
+        }
+
+        .burger-btn span {
+            width: 26px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .burger-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        .burger-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .burger-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Hero */
         #home {
             position: relative;
             z-index: 5;
@@ -293,10 +333,12 @@
             max-width: 500px;
         }
 
+        /* ===== ИСПРАВЛЕНИЕ #3: ИЕРАРХИЯ КНОПОК ===== */
         .cta-group {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
+            align-items: center;
         }
 
         .btn-primary {
@@ -322,25 +364,30 @@
             box-shadow: 0 0 50px rgba(168, 85, 247, 0.7);
         }
 
-        .btn-outline {
-            padding: 1rem 2.2rem;
-            background: transparent;
-            color: var(--cyan);
-            border: 1px solid var(--cyan);
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
+        /* Второстепенная кнопка — просто текстовая ссылка */
+        .btn-text-link {
+            color: var(--text-dim);
             text-decoration: none;
-            display: inline-block;
-            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
         }
 
-        .btn-outline:hover {
-            background: rgba(34, 211, 238, 0.1);
-            box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
-            transform: translateY(-3px);
+        .btn-text-link:hover {
+            color: var(--cyan);
+        }
+
+        .btn-text-link svg {
+            width: 14px;
+            height: 14px;
+            transition: transform 0.3s;
+        }
+
+        .btn-text-link:hover svg {
+            transform: translateX(4px);
         }
 
         .hero-visual {
@@ -419,6 +466,48 @@
             to { opacity: 1; }
         }
 
+        /* ===== ИСПРАВЛЕНИЕ #4: БЛОК С ЦИФРАМИ (СОЦИАЛЬНОЕ ДОКАЗАТЕЛЬСТВО) ===== */
+        .stats-bar {
+            position: relative;
+            z-index: 5;
+            padding: 4rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .stats-bar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stats-bar-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stats-bar-number {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--purple), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-bar-label {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Features */
         #features {
             position: relative;
             z-index: 5;
@@ -507,6 +596,7 @@
             line-height: 1.6;
         }
 
+        /* How it works */
         .how-it-works {
             position: relative;
             z-index: 5;
@@ -567,7 +657,160 @@
             font-size: 0.95rem;
         }
 
-        /* Блок отзывов */
+        /* ===== ИСПРАВЛЕНИЕ #5: БЛОК ТАРИФОВ ===== */
+        #pricing {
+            position: relative;
+            z-index: 5;
+            padding: 8rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            position: relative;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            padding: 2.5rem 2rem;
+            transition: all 0.4s;
+            display: flex;
+            flex-direction: column;
+            background-color: rgba(10, 10, 15, 0.5);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(168, 85, 247, 0.3);
+            box-shadow: 0 20px 40px rgba(168, 85, 247, 0.15);
+        }
+
+        /* Рекомендуемый тариф */
+        .pricing-card.featured {
+            border-color: var(--purple);
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(34, 211, 238, 0.05));
+            box-shadow: 0 0 40px rgba(168, 85, 247, 0.2);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0.4rem 1.2rem;
+            background: linear-gradient(90deg, var(--purple), var(--cyan));
+            color: #fff;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .pricing-card .price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin: 1rem 0;
+            background: linear-gradient(135deg, var(--purple), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .pricing-card .price small {
+            font-size: 1rem;
+            color: var(--text-dim);
+            font-weight: 500;
+            -webkit-text-fill-color: var(--text-dim);
+        }
+
+        .pricing-card .price-desc {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .pricing-features li {
+            padding: 0.5rem 0;
+            color: var(--text);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--cyan);
+            font-weight: 700;
+        }
+
+        .pricing-features li.disabled {
+            color: var(--text-dim);
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+
+        .pricing-features li.disabled::before {
+            content: '✗';
+            color: var(--error-red);
+        }
+
+        .btn-pricing {
+            width: 100%;
+            padding: 0.9rem;
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn-pricing:hover {
+            border-color: var(--cyan);
+            color: var(--cyan);
+            background: rgba(34, 211, 238, 0.1);
+        }
+
+        .pricing-card.featured .btn-pricing {
+            background: linear-gradient(90deg, var(--purple), var(--blue));
+            border: none;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+        }
+
+        .pricing-card.featured .btn-pricing:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
+        }
+
+        /* Отзывы */
         .testimonials {
             position: relative;
             z-index: 5;
@@ -686,7 +929,97 @@
             color: var(--text-dim);
         }
 
-        /* Секция заявки */
+        /* ===== ИСПРАВЛЕНИЕ #6: FAQ СЕКЦИЯ ===== */
+        #faq {
+            position: relative;
+            z-index: 5;
+            padding: 8rem 5%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            backdrop-filter: blur(20px);
+            overflow: hidden;
+            transition: all 0.3s;
+            background-color: rgba(10, 10, 15, 0.5);
+        }
+
+        .faq-item:hover {
+            border-color: rgba(168, 85, 247, 0.3);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: transparent;
+            border: none;
+            color: var(--text);
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: color 0.3s;
+        }
+
+        .faq-question:hover {
+            color: var(--cyan);
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: rgba(168, 85, 247, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .faq-icon::before {
+            content: '+';
+            color: var(--cyan);
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+            background: rgba(168, 85, 247, 0.4);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 2rem;
+            color: var(--text-dim);
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 2rem 1.5rem;
+        }
+
+        /* Форма заявки */
         #contact {
             position: relative;
             z-index: 5;
@@ -900,19 +1233,317 @@
             box-shadow: 0 0 25px rgba(34, 211, 238, 0.35);
         }
 
-        footer {
+        /* ===== ИСПРАВЛЕНИЕ #7: РАСШИРЕННЫЙ ФУТЕР ===== */
+        .footer-extended {
             position: relative;
             z-index: 5;
-            padding: 3rem 5%;
+            padding: 4rem 5% 2rem;
             border-top: 1px solid var(--glass-border);
-            text-align: center;
-            color: var(--text-dim);
-            font-size: 0.9rem;
             backdrop-filter: blur(20px);
-            background: rgba(5, 5, 10, 0.5);
+            background: rgba(5, 5, 10, 0.7);
         }
 
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-top: 1rem;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            color: var(--text);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+        }
+
+        .footer-col a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--cyan);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dim);
+            transition: all 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: var(--cyan);
+            border-color: var(--cyan);
+            transform: translateY(-2px);
+        }
+
+        .footer-social svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-legal a {
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-legal a:hover {
+            color: var(--cyan);
+        }
+
+        /* ===== ИСПРАВЛЕНИЕ #8: ВИДЖЕТ ЧАТА (кнопка) ===== */
+        .chat-widget {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 90;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--purple), var(--cyan));
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(168, 85, 247, 0.4);
+            transition: all 0.3s;
+            animation: pulseChat 2.5s ease-in-out infinite;
+        }
+
+        .chat-widget:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 35px rgba(168, 85, 247, 0.6);
+        }
+
+        .chat-widget svg {
+            width: 28px;
+            height: 28px;
+            color: #fff;
+        }
+
+        @keyframes pulseChat {
+            0%, 100% { box-shadow: 0 8px 25px rgba(168, 85, 247, 0.4); }
+            50% { box-shadow: 0 8px 35px rgba(34, 211, 238, 0.6); }
+        }
+
+        /* ===== ИСПРАВЛЕНИЕ #9: EXIT-INTENT ПОПАП ===== */
+        .exit-popup-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 200;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .exit-popup-overlay.show {
+            display: flex;
+        }
+
+        .exit-popup {
+            background: var(--bg-darker);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 60px rgba(168, 85, 247, 0.3);
+            animation: fadeInUp 0.4s ease-out;
+        }
+
+        .exit-popup-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .exit-popup-close:hover {
+            color: var(--cyan);
+            border-color: var(--cyan);
+            transform: rotate(90deg);
+        }
+
+        .exit-popup-emoji {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .exit-popup h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .exit-popup .discount {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background: linear-gradient(90deg, var(--purple), var(--cyan));
+            border-radius: 12px;
+            font-weight: 900;
+            font-size: 1.5rem;
+            margin: 0.5rem 0 1rem;
+            color: #fff;
+        }
+
+        .exit-popup p {
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .exit-popup-input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: var(--text);
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 1rem;
+            outline: none;
+        }
+
+        .exit-popup-input:focus {
+            border-color: var(--cyan);
+        }
+
+        .exit-popup-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(90deg, var(--purple), var(--cyan));
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .exit-popup-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
+        }
+
+        .exit-popup-skip {
+            background: transparent;
+            border: none;
+            color: var(--text-dim);
+            cursor: pointer;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            text-decoration: underline;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .exit-popup-skip:hover {
+            color: var(--text);
+        }
+
+        /* Mobile */
         @media (max-width: 900px) {
+            /* Бургер-меню активируется */
+            .burger-btn { display: flex; }
+
+            nav ul {
+                position: fixed;
+                top: 0; right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: rgba(10, 10, 15, 0.98);
+                backdrop-filter: blur(20px);
+                border-left: 1px solid var(--glass-border);
+                flex-direction: column;
+                padding: 5rem 2rem 2rem;
+                gap: 1.5rem;
+                transition: right 0.3s ease;
+            }
+
+            nav ul.open { right: 0; }
+
+            nav a {
+                font-size: 1.1rem;
+                padding: 0.5rem 0;
+            }
+
             #home {
                 grid-template-columns: 1fr;
                 padding: 7rem 5% 4rem;
@@ -926,26 +1557,54 @@
             .orbit-ring { width: 135px; height: 135px; margin: -67.5px 0 0 -67.5px; }
             .orbit-ring::before { width: 11px; height: 11px; top: -6px; }
             .how-grid { grid-template-columns: 1fr; }
-            nav ul { display: none; }
             .contact-card { padding: 3rem 1.5rem; }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            .exit-popup { padding: 2rem 1.5rem; }
+            .chat-widget {
+                width: 55px;
+                height: 55px;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- ШАПКА (семантический тег <header> уже используется) -->
     <header>
         <a href="#home" class="logo gradient-animated">NEXUS</a>
         <nav aria-label="Основная навигация">
-            <ul>
-                <li><a href="#home">Главная</a></li>
-                <li><a href="#features">Возможности</a></li>
-                <li><a href="#contact">Оставить заявку</a></li>
+            <ul id="navMenu">
+                <li><a href="#home" onclick="closeMenu()">Главная</a></li>
+                <li><a href="#features" onclick="closeMenu()">Возможности</a></li>
+                <li><a href="#pricing" onclick="closeMenu()">Тарифы</a></li>
+                <li><a href="#faq" onclick="closeMenu()">FAQ</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Оставить заявку</a></li>
             </ul>
         </nav>
+        <button class="burger-btn" id="burgerBtn" aria-label="Меню">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
 
-    <!-- ГЛАВНЫЙ КОНТЕНТ (новый семантический тег <main>) -->
     <main>
 
         <!-- Главный экран -->
@@ -959,7 +1618,13 @@
                 <p class="fade-in fade-in-delay-3">Nexus — это платформа нового поколения, которая объединяет искусственный интеллект, аналитику и автоматизацию в одном пространстве.</p>
                 <div class="cta-group fade-in fade-in-delay-4">
                     <a href="#contact" class="btn-primary">Попробовать бесплатно</a>
-                    <a href="https://example.com/pay" target="_blank" rel="noopener noreferrer" class="btn-outline">Купить PRO</a>
+                    <a href="#pricing" class="btn-text-link">
+                        Купить PRO
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
                 </div>
             </div>
 
@@ -996,6 +1661,28 @@
                     <span class="star star-2"></span>
                     <span class="star star-3"></span>
                     <span class="star star-4"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== БЛОК С ЦИФРАМИ ===== -->
+        <section class="stats-bar" aria-label="Статистика компании">
+            <div class="stats-bar-grid">
+                <div class="stats-bar-item">
+                    <div class="stats-bar-number">500+</div>
+                    <div class="stats-bar-label">Активных клиентов</div>
+                </div>
+                <div class="stats-bar-item">
+                    <div class="stats-bar-number">10M+</div>
+                    <div class="stats-bar-label">Обработанных запросов</div>
+                </div>
+                <div class="stats-bar-item">
+                    <div class="stats-bar-number">99.9%</div>
+                    <div class="stats-bar-label">Uptime платформы</div>
+                </div>
+                <div class="stats-bar-item">
+                    <div class="stats-bar-number">24/7</div>
+                    <div class="stats-bar-label">Техподдержка</div>
                 </div>
             </div>
         </section>
@@ -1088,6 +1775,64 @@
             </div>
         </section>
 
+        <!-- ===== БЛОК ТАРИФОВ ===== -->
+        <section id="pricing" aria-labelledby="pricing-heading">
+            <div class="section-header" style="text-align: center; max-width: 100%; margin: 0 auto 2rem;">
+                <div class="section-tag">Тарифы</div>
+                <h2 id="pricing-heading">Выберите план, который подходит вам</h2>
+            </div>
+            <div class="pricing-grid">
+                <!-- FREE -->
+                <article class="pricing-card">
+                    <h3>Free</h3>
+                    <div class="price">0₽<small>/мес</small></div>
+                    <p class="price-desc">Для личного использования и экспериментов</p>
+                    <ul class="pricing-features">
+                        <li>До 1 000 запросов в месяц</li>
+                        <li>Базовая AI-аналитика</li>
+                        <li>1 проект</li>
+                        <li>Email поддержка</li>
+                        <li class="disabled">Расширенные отчёты</li>
+                        <li class="disabled">API доступ</li>
+                    </ul>
+                    <a href="#contact" class="btn-pricing">Начать бесплатно</a>
+                </article>
+
+                <!-- PRO (рекомендуемый) -->
+                <article class="pricing-card featured">
+                    <div class="pricing-badge">ПОПУЛЯРНЫЙ</div>
+                    <h3>Pro</h3>
+                    <div class="price">2 990₽<small>/мес</small></div>
+                    <p class="price-desc">Для растущих команд и стартапов</p>
+                    <ul class="pricing-features">
+                        <li>До 50 000 запросов в месяц</li>
+                        <li>Продвинутая AI-аналитика</li>
+                        <li>До 10 проектов</li>
+                        <li>Приоритетная поддержка 24/7</li>
+                        <li>Расширенные отчёты</li>
+                        <li>API доступ</li>
+                    </ul>
+                    <a href="#contact" class="btn-pricing">Попробовать 14 дней бесплатно</a>
+                </article>
+
+                <!-- ENTERPRISE -->
+                <article class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">Custom</div>
+                    <p class="price-desc">Для крупного бизнеса с особыми требованиями</p>
+                    <ul class="pricing-features">
+                        <li>Безлимитные запросы</li>
+                        <li>Персональный AI-ассистент</li>
+                        <li>Безлимит проектов</li>
+                        <li>Выделенный менеджер</li>
+                        <li>On-premise развёртывание</li>
+                        <li>SLA 99.99%</li>
+                    </ul>
+                    <a href="#contact" class="btn-pricing">Связаться с нами</a>
+                </article>
+            </div>
+        </section>
+
         <!-- Отзывы -->
         <section class="testimonials" aria-labelledby="testimonials-heading">
             <div class="section-header">
@@ -1154,6 +1899,75 @@
             </div>
         </section>
 
+        <!-- ===== FAQ СЕКЦИЯ ===== -->
+        <section id="faq" aria-labelledby="faq-heading">
+            <div class="section-header" style="text-align: center; max-width: 100%; margin: 0 auto 2rem;">
+                <div class="section-tag">FAQ</div>
+                <h2 id="faq-heading">Частые вопросы</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Нужны ли технические знания для работы с Nexus?</span>
+                        <span class="faq-icon"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Нет, Nexus разработан для людей без технического бэкграунда. Интуитивный интерфейс позволяет настроить аналитику за несколько кликов. Для разработчиков есть мощный API и SDK.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Как обеспечивается безопасность данных?</span>
+                        <span class="faq-icon"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Мы используем AES-256 шифрование, соответствуем стандартам GDPR и ISO 27001. Данные хранятся в сертифицированных дата-центрах с резервным копированием каждые 15 минут.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Могу ли я отменить подписку в любой момент?</span>
+                        <span class="faq-icon"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Да, вы можете отменить подписку одним кликом в личном кабинете. Никаких скрытых комиссий или длительных обязательств. Деньги за неиспользованный период возвращаются.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Какие интеграции поддерживаются?</span>
+                        <span class="faq-icon"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Nexus интегрируется с более чем 200 сервисами: Slack, Google Analytics, HubSpot, Salesforce, 1С, Битрикс24, PostgreSQL, MongoDB и многие другие. Полный список в документации.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Есть ли бесплатный пробный период?</span>
+                        <span class="faq-icon"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Да, тариф Pro доступен бесплатно в течение 14 дней без привязки карты. После окончания пробного периода вы можете перейти на платный план или остаться на Free версии.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Как работает техподдержка?</span>
+                        <span class="faq-icon"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>На тарифе Pro — поддержка 24/7 через чат, Telegram и Email с временем отклика до 15 минут. Enterprise клиенты получают выделенного менеджера и SLA 99.99%.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Форма заявки -->
         <section id="contact" aria-labelledby="contact-heading">
             <div class="contact-card fade-in">
@@ -1212,12 +2026,130 @@
 
     </main>
 
-    <!-- ПОДВАЛ (семантический тег <footer> уже используется) -->
-    <footer>
-        <p>© 2026 Nexus Technologies. Создано для будущего.</p>
+    <!-- ===== РАСШИРЕННЫЙ ФУТЕР ===== -->
+    <footer class="footer-extended">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo gradient-animated">NEXUS</div>
+                    <p>AI-платформа нового поколения для аналитики и автоматизации. Превращаем данные в решения.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Telegram">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                        </a>
+                        <a href="#" aria-label="VK">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.525-2.049-1.714-1.033-1.01-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.12-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .779.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.049.17.49-.085.744-.576.744z"/></svg>
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Продукт</h4>
+                    <ul>
+                        <li><a href="#features">Возможности</a></li>
+                        <li><a href="#pricing">Тарифы</a></li>
+                        <li><a href="#">Интеграции</a></li>
+                        <li><a href="#">Обновления</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Компания</h4>
+                    <ul>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Блог</a></li>
+                        <li><a href="#">Карьера</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Поддержка</h4>
+                    <ul>
+                        <li><a href="#">Документация</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#">Статус системы</a></li>
+                        <li><a href="mailto:hello@nexus.tech">hello@nexus.tech</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Nexus Technologies. Все права защищены.</p>
+                <div class="footer-legal">
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Условия использования</a>
+                    <a href="#">Cookie</a>
+                </div>
+            </div>
+        </div>
     </footer>
 
+    <!-- ===== ВИДЖЕТ ЧАТА (кнопка) ===== -->
+    <button class="chat-widget" id="chatWidget" aria-label="Открыть чат поддержки">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            <line x1="9" y1="10" x2="15" y2="10"></line>
+            <line x1="12" y1="7" x2="12" y2="13"></line>
+        </svg>
+    </button>
+
+    <!-- ===== EXIT-INTENT ПОПАП ===== -->
+    <div class="exit-popup-overlay" id="exitPopup">
+        <div class="exit-popup">
+            <button class="exit-popup-close" id="exitPopupClose" aria-label="Закрыть">✕</button>
+            <span class="exit-popup-emoji">🎁</span>
+            <h3>Подождите!</h3>
+            <div class="discount">-10% НА PRO</div>
+            <p>Получите эксклюзивную скидку 10% на тариф Pro — только сегодня. Введите email и мы пришлём промокод.</p>
+            <input type="email" class="exit-popup-input" placeholder="Ваш email" id="exitEmail">
+            <button class="exit-popup-btn" id="exitSubmit">Получить промокод</button>
+            <button class="exit-popup-skip" id="exitSkip">Нет, спасибо</button>
+        </div>
+    </div>
+
     <script>
+        // ===== БУРГЕР-МЕНЮ =====
+        const burgerBtn = document.getElementById('burgerBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        burgerBtn.addEventListener('click', () => {
+            burgerBtn.classList.toggle('active');
+            navMenu.classList.toggle('open');
+        });
+
+        function closeMenu() {
+            burgerBtn.classList.remove('active');
+            navMenu.classList.remove('open');
+        }
+
+        // Закрытие меню при клике вне его
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !burgerBtn.contains(e.target) && navMenu.classList.contains('open')) {
+                closeMenu();
+            }
+        });
+
+        // ===== FAQ АККОРДЕОН =====
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Закрываем все
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                // Открываем текущий, если не был открыт
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // ===== ФОРМА ЗАЯВКИ =====
         const form = document.getElementById('applicationForm');
         const nameInput = document.getElementById('userName');
         const contactInput = document.getElementById('userContact');
@@ -1265,7 +2197,7 @@
                 isValid = false;
             } else if (contact.startsWith('@')) {
                 if (!telegramRegex.test(contact)) {
-                    showError(contactInput, 'contactError', 'Telegram должен начинаться с @ и содержать минимум 5 символов (например, @nexus_user)');
+                    showError(contactInput, 'contactError', 'Telegram должен начинаться с @ и содержать минимум 5 символов');
                     isValid = false;
                 } else {
                     hideError(contactInput, 'contactError');
@@ -1278,7 +2210,7 @@
                     hideError(contactInput, 'contactError');
                 }
             } else {
-                showError(contactInput, 'contactError', 'Введите email (name@mail.com) или Telegram (@username)');
+                showError(contactInput, 'contactError', 'Введите email или Telegram (@username)');
                 isValid = false;
             }
 
@@ -1288,6 +2220,61 @@
                 setTimeout(() => {
                     successMessage.classList.remove('show');
                 }, 6000);
+            }
+        });
+
+        // ===== ВИДЖЕТ ЧАТА =====
+        document.getElementById('chatWidget').addEventListener('click', () => {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // ===== EXIT-INTENT ПОПАП =====
+        const exitPopup = document.getElementById('exitPopup');
+        const exitPopupClose = document.getElementById('exitPopupClose');
+        const exitSubmit = document.getElementById('exitSubmit');
+        const exitSkip = document.getElementById('exitSkip');
+        const exitEmail = document.getElementById('exitEmail');
+        let exitShown = false;
+
+        // Показать попап при уходе курсора за верхнюю границу окна (desktop)
+        document.addEventListener('mouseout', (e) => {
+            if (!exitShown && e.clientY <= 0 && window.innerWidth > 900) {
+                showExitPopup();
+            }
+        });
+
+        // Показать попап после 45 секунд на странице (mobile fallback)
+        setTimeout(() => {
+            if (!exitShown && window.innerWidth <= 900) {
+                showExitPopup();
+            }
+        }, 45000);
+
+        function showExitPopup() {
+            if (!exitShown) {
+                exitPopup.classList.add('show');
+                exitShown = true;
+            }
+        }
+
+        function closeExitPopup() {
+            exitPopup.classList.remove('show');
+        }
+
+        exitPopupClose.addEventListener('click', closeExitPopup);
+        exitSkip.addEventListener('click', closeExitPopup);
+
+        exitPopup.addEventListener('click', (e) => {
+            if (e.target === exitPopup) closeExitPopup();
+        });
+
+        exitSubmit.addEventListener('click', () => {
+            const email = exitEmail.value.trim();
+            if (emailRegex.test(email)) {
+                alert('🎉 Промокод NEXUS10 отправлен на ' + email + '! Скидка 10% активна 24 часа.');
+                closeExitPopup();
+            } else {
+                alert('Пожалуйста, введите корректный email');
             }
         });
     </script>
